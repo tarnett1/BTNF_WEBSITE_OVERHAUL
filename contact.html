@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Intake Portals | Breakthroughs of North Florida | Breakthroughs of North Florida</title>
+  <meta name="description" content="Contact our Yulee office, locate us in Professional Way, or access TherapyPortal and monday.com onboarding portals.">
+  
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Unique CSS overrides for secondary subpages */
+    .subpage-hero {
+      background: linear-gradient(135deg, var(--color-primary-navy) 0%, #0c3552 100%);
+      color: var(--color-text-light);
+      padding: 5rem 0 4rem 0;
+      text-align: center;
+    }
+    .subpage-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .subpage-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    /* Team Filtering styles */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--color-border-subtle);
+      background-color: var(--color-bg-surface);
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background-color: var(--color-bg-alt);
+    }
+    .filter-btn.active {
+      background-color: var(--color-primary-navy);
+      color: var(--color-text-light);
+      border-color: var(--color-primary-navy);
+    }
+    
+    /* Layout styling */
+    .subpage-content {
+      padding: 4rem 0;
+    }
+    
+    .team-grid-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .team-bio-full {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+    
+    .education-text {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--color-primary-navy);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    
+    /* Programs layout */
+    .programs-detailed {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .program-card-detail {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .program-card-detail h3 {
+      font-size: 1.75rem;
+      color: var(--color-primary-navy);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--color-academic-primary);
+      padding-left: 1rem;
+    }
+    .program-body-text {
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      white-space: pre-wrap;
+    }
+    
+    /* Form & Insurance layout */
+    .insurance-section-detail {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .insurance-section-detail {
+        grid-template-columns: 1fr;
+      }
+      .subpage-hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .insurance-list {
+      list-style: none;
+      padding: 0;
+    }
+    .insurance-list li {
+      padding: 0.75rem 1rem;
+      background: var(--color-counseling-bg-light);
+      border-left: 4px solid var(--color-counseling-primary);
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--color-primary-navy);
+    }
+    
+    .paperwork-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .paperwork-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .paperwork-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-main);
+    }
+    .paperwork-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Contact page overrides */
+    .contact-grid-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid-detail {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+    
+    .card-portal-box {
+      background: var(--color-bg-alt);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Keyboard Accessibility: Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-area" aria-label="Breakthroughs of North Florida Home">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="programs.html" class="nav-link">Our Programs</a></li>
+          <li><a href="team.html" class="nav-link">Meet the Team</a></li>
+          <li><a href="rates-insurance.html" class="nav-link">Scholarships &amp; Insurance</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button (Hamburger) -->
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="programs.html" class="mobile-nav-link">Our Programs</a></li>
+        <li><a href="team.html" class="mobile-nav-link">Meet the Team</a></li>
+        <li><a href="rates-insurance.html" class="mobile-nav-link">Scholarships &amp; Insurance</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+        <li><a href="contact.html" class="btn btn-primary btn-block">Schedule Consultation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="subpage-hero" style="background: linear-gradient(135deg, var(--color-primary-navy) 0%, #163e5d 100%);">
+      <div class="container">
+        <h1>Connect With Our Team</h1>
+        <p>Get in touch for consultations, intake packets, location details, and active client portal access.</p>
+      </div>
+    </section>
+
+    <section class="subpage-content">
+      <div class="container">
+        <div class="contact-grid-detail">
+          <div>
+            <h3>Office Contact &amp; Details</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 2rem;">If you have questions about scheduling, billing, insurance, or specific tutoring methodologies, reach out directly or schedule an initial consultation below.</p>
+            
+            <div class="card-portal-box" style="margin-bottom: 2rem;">
+              <h4 style="margin-bottom: 0.5rem; color: var(--color-primary-navy);">Call Our Office</h4>
+              <p style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-main);"><a href="tel:9048491190" style="color: inherit; text-decoration: none;">904-849-1190</a></p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Monday - Friday: 8:00 AM - 6:00 PM</p>
+            </div>
+
+            <div class="card-portal-box" style="margin-bottom: 2rem;">
+              <h4 style="margin-bottom: 0.5rem; color: var(--color-primary-navy);">Email Address</h4>
+              <p style="font-size: 1.15rem; font-weight: 600; color: var(--color-text-main);"><a href="mailto:office@breakthroughsnf.com" style="color: inherit; text-decoration: underline;">office@breakthroughsnf.com</a></p>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">For general inquiries, scholarship verification, and records.</p>
+            </div>
+
+            <div id="locations">
+              <h3>Office Location</h3>
+              <p style="color: var(--color-text-muted);">We are conveniently located in Yulee, serving Fernandina Beach, Amelia Island, and Nassau County:</p>
+              <p style="font-weight: 600; color: var(--color-text-main); margin: 0.5rem 0;">87003 Professional Way<br>Yulee, Florida 32097</p>
+              <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x88e44c20579e0bf5%3A0xe9ee95e5ef0de367!2s87003%20Professional%20Way%2C%20Yulee%2C%20FL%2032097!5e0!3m2!1sen!2sus!4v1717900000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <div>
+            <h3>Secure Client Portals</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Access billing statements, schedule appointments, and submit documentation securely through our clinical and educational onboarding portals:</p>
+            
+            <div class="card-portal-box" style="border-left: 5px solid var(--color-counseling-primary); background: var(--color-counseling-bg-light);">
+              <h4 style="color: var(--color-counseling-primary);">Counseling Client Portal</h4>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin: 0.5rem 0 1.5rem 0;">Existing clinical mental health counseling clients can access invoices, session scheduling, and HIPAA documentation via TherapyPortal.</p>
+              <a href="https://www.therapyportal.com/p/breakthroughs32097/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: var(--color-counseling-primary); border-color: var(--color-counseling-primary);">Access TherapyPortal</a>
+            </div>
+
+            <div class="card-portal-box" style="border-left: 5px solid var(--color-academic-primary); background: var(--color-academic-bg-light);">
+              <h4 style="color: var(--color-academic-primary);">Academic &amp; Tutoring Board</h4>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin: 0.5rem 0 1.5rem 0;">New educational, tutoring, and Lindamood-Bell® families can fill out the intake registration and track their onboarding workflows on our monday.com dashboard.</p>
+              <a href="https://forms.gle/X3RCMwhWqUVp6wNT8" target="_blank" class="btn btn-primary" style="background-color: var(--color-academic-primary); border-color: var(--color-academic-primary);">Academic Intake Onboarding</a>
+            </div>
+            
+            <div class="card-portal-box">
+              <h4>Send Us a Message</h4>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">Would you like us to contact you? Let us know what services you are interested in.</p>
+              <a href="index.html#contact" class="btn btn-secondary btn-block">Go to Consultation Form</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+    
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+        <p class="footer-desc">
+          Professional, integrated therapeutic and educational care helping North Florida families thrive.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="team.html">Meet the Team</a></li>
+            <li><a href="rates-insurance.html">Rates &amp; Scholarships</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h5>Legal &amp; Policy</h5>
+          <ul>
+            <li><a href="rates-insurance.html">Intake Forms</a></li>
+            <li><a href="rates-insurance.html#privacy">Privacy Policy</a></li>
+            <li><a href="contact.html#locations">Our Location</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div class="footer-legal-blocks">
+          <p class="copyright-text">&copy; 2026 Breakthroughs of North Florida. All rights reserved.</p>
+          <p class="license-info">Clinical mental health counseling services are provided by licensed clinicians in the State of Florida. Tutoring represents specialized academic intervention and does not constitute psychological therapy.</p>
+          <p class="license-info"><strong>Affiliation Disclaimer:</strong> Breakthroughs of North Florida is not affiliated with, certified, endorsed, licensed, monitored or sponsored by Lindamood-Bell Learning Processes.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript for mobile menu toggling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        menuToggle.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+      });
+
+      // Close mobile menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          mobileNav.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

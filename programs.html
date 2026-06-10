@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Educational Programs | Barton Spelling & Lindamood-Bell | Breakthroughs of North Florida</title>
+  <meta name="description" content="Learn about our research-backed academic methodologies: Barton Reading and Spelling, Lindamood-Bell instruction, SAT/ACT Prep, and Love and Logic.">
+  
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Unique CSS overrides for secondary subpages */
+    .subpage-hero {
+      background: linear-gradient(135deg, var(--color-primary-navy) 0%, #0c3552 100%);
+      color: var(--color-text-light);
+      padding: 5rem 0 4rem 0;
+      text-align: center;
+    }
+    .subpage-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .subpage-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    /* Team Filtering styles */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--color-border-subtle);
+      background-color: var(--color-bg-surface);
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background-color: var(--color-bg-alt);
+    }
+    .filter-btn.active {
+      background-color: var(--color-primary-navy);
+      color: var(--color-text-light);
+      border-color: var(--color-primary-navy);
+    }
+    
+    /* Layout styling */
+    .subpage-content {
+      padding: 4rem 0;
+    }
+    
+    .team-grid-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .team-bio-full {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+    
+    .education-text {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--color-primary-navy);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    
+    /* Programs layout */
+    .programs-detailed {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .program-card-detail {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .program-card-detail h3 {
+      font-size: 1.75rem;
+      color: var(--color-primary-navy);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--color-academic-primary);
+      padding-left: 1rem;
+    }
+    .program-body-text {
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      white-space: pre-wrap;
+    }
+    
+    /* Form & Insurance layout */
+    .insurance-section-detail {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .insurance-section-detail {
+        grid-template-columns: 1fr;
+      }
+      .subpage-hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .insurance-list {
+      list-style: none;
+      padding: 0;
+    }
+    .insurance-list li {
+      padding: 0.75rem 1rem;
+      background: var(--color-counseling-bg-light);
+      border-left: 4px solid var(--color-counseling-primary);
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--color-primary-navy);
+    }
+    
+    .paperwork-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .paperwork-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .paperwork-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-main);
+    }
+    .paperwork-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Contact page overrides */
+    .contact-grid-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid-detail {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+    
+    .card-portal-box {
+      background: var(--color-bg-alt);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Keyboard Accessibility: Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-area" aria-label="Breakthroughs of North Florida Home">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="programs.html" class="nav-link">Our Programs</a></li>
+          <li><a href="team.html" class="nav-link">Meet the Team</a></li>
+          <li><a href="rates-insurance.html" class="nav-link">Scholarships &amp; Insurance</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button (Hamburger) -->
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="programs.html" class="mobile-nav-link">Our Programs</a></li>
+        <li><a href="team.html" class="mobile-nav-link">Meet the Team</a></li>
+        <li><a href="rates-insurance.html" class="mobile-nav-link">Scholarships &amp; Insurance</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+        <li><a href="contact.html" class="btn btn-primary btn-block">Schedule Consultation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="subpage-hero" style="background: linear-gradient(135deg, #856a29 0%, #523f11 100%);">
+      <div class="container">
+        <h1>Specialized Educational Programs</h1>
+        <p>Research-based academic interventions customized for neurodivergent learners, homeschoolers, and students with unique learning styles.</p>
+      </div>
+    </section>
+
+    <section class="subpage-content">
+      <div class="container">
+        <div class="programs-detailed">
+    
+          <article class="program-card-detail" id="barton">
+            <h3>BARTON</h3>
+            <div class="program-body-text">BARTON
+
+Orton-Gillingham
+
+Why the Barton System Works So Well
+
+Orton-Gillingham Influenced
+
+"Orton Gillingham is a structured language approach that is different in both what is taught (reading and spelling are taught as related subjects) and how it is taught (the methodology)."
+
+"Our system is a multi-sensory, direct, explicit, structured and sequential program designed for intense intervention."</div>
+          </article>
+        
+          <article class="program-card-detail" id="lindamood-bell">
+            <h3>LINDAMOOD-BELL®</h3>
+            <div class="program-body-text">LINDAMOOD-BELL®
+
+Visualizing Verbalizing®
+
+Develops concept image which improves reading and listening comprehension, memory, oral vocabulary, critical thinking, and writing.
+
+MORE INFORMATION
+
+Seeing Stars®
+
+Develops symbol imagery as a basis for orthographic awareness, phonemic awareness, word attack, word recognition, spelling, and contextual reading fluency.
+
+On Cloud 9®
+
+Develops the ability to image and verbalize the concepts and process of math.
+
+LiPS®
+
+A program for reading, spelling, and speech.
+
+Talkies®
+
+A program for oral language comprehension and expression.</div>
+          </article>
+        
+          <article class="program-card-detail" id="lips">
+            <h3>LiPS®</h3>
+            <div class="program-body-text">LiPS®
+
+Despite numerous attempts to teach him, your child struggles with sounding words. When he attempts to read on the page, he guesses or uses context cues. He has been labeled as “dyslexic.”
+
+A primary cause of decoding and spelling problems is difficulty judging sounds within words. This is called weak phonemic awareness. Weak phonemic awareness causes individuals to add, omit, substitute, and reverse sounds and letters within words.
+
+Many children and adults experience the symptoms of weak phonemic awareness.
+
+This causes weakness in:
+
+Recognizing sameness/difference of phonemes
+
+Discriminating the identity, number, and order
+
+of sounds within words
+
+Blending sounds
+
+Word attack
+
+Spelling
+
+Syllabication
+
+The LiPS® Program teaches students to discover and label the oral-motor movements of phonemes. Students can then verify the identity, number, and sequence of sounds in words.
+
+Once established, phonemic awareness is then applied to reading, spelling, and speech.
+
+Information taken from the Lindamood-Bell website
+
+www.lindamoodbell.com
+
+$55.00 per hour</div>
+          </article>
+        
+          <article class="program-card-detail" id="on-cloud-9">
+            <h3>On Cloud 9®</h3>
+            <div class="program-body-text">On Cloud 9®
+
+Your child has difficulty remembering math facts and she struggles with computation. She is overwhelmed by word problems and understanding new math concepts. She has been labeled with“dyscalculia” (a mathematics disorder)
+
+A primary cause of math difficulties is an inability to create a gestalt image for the concepts underlying math processes. Individuals often attempt to memorize facts instead of being able to think, reason, and problem solve with numbers
+
+Individuals of all ages may experience an inability to image the concepts underlying math processes.
+
+This causes weakness in:
+
+Learning math family facts
+
+Grasping mathematical relationships
+
+Following proper mathematical operations
+
+Solving word problems
+
+Estimating numerical values
+
+Understanding higher level math
+
+The On Cloud Nine® Math Program stimulates the ability to image and verbalize the concepts underlying math processes. Concept and numerical imagery are integrated with language and applied to math computation and problem solving. There is emphasis on both mathematical reasoning and mathematical computation. Individuals of all ages learn to do and enjoy math.
+
+Information taken from the Lindamood-Bell website
+
+www.lindamoodbell.com
+
+$55.00 per hour</div>
+          </article>
+        
+          <article class="program-card-detail" id="seeing-stars">
+            <h3>Seeing Stars®</h3>
+            <div class="program-body-text">Seeing Stars®
+
+Your child learned phonics and can sound out words, but he still struggles with reading words on the page.
+
+He continues to have difficulty with remembering sight words and spelling words. His spelling is phonetically accurate, but he can’t remember the visual patterns of words (orthography).
+
+Often he sounds out a word correctly, but doesn’t recognize that same word when he encounters it in the next paragraph.
+
+A cause of difficulty in establishing sight words and contextual fluency is difficulty in visualizing letters in words. This is called weak
+
+symbol imagery
+
+A significant number of students—even those who have well-developed phonemic awareness—have difficulty with rapidly perceiving sounds in words, and are slow to self-correct their reading errors.
+
+Individuals of all ages can experience the symptoms of weak symbol imagery.
+
+This causes weakness in:
+
+Memorizing sight words
+
+Sounding out words
+
+Orthographic awareness
+
+Phonemic awareness
+
+Contextual reading fluency
+
+Orthographic spelling
+
+Seeing Stars®: Symbol Imagery for Phonemic Awareness, Sight Words, and Spelling Program
+
+(SI) successfully develops symbol imagery for reading and spelling.
+
+Long overlooked in the field of reading research, symbol imagery is an important function that can now be assessed and developed.
+
+Information taken from the Lindamood-Bell website
+
+www.lindamoodbell.com
+
+$55.00 per hour</div>
+          </article>
+        
+          <article class="program-card-detail" id="talkies">
+            <h3>Talkies®</h3>
+            <div class="program-body-text">Talkies®
+
+Your child is in elementary school, and has had a full-time tutor since he was three. His poor communication skills are causing him social difficulty, and he has difficulty expressing himself. He struggles with understanding language concepts.
+
+Weakness in
+
+concept imagery—
+
+the ability to create an imaged whole—prevents Chip from comprehending and expressing language well.
+
+Individuals of all ages can experience a significant weakness in the ability to create an imaged whole.
+
+This causes weakness in:
+
+Difficulty with verbal and non-verbal expression
+
+Difficulty formulating sentences
+
+Difficulty following directions
+
+Apparent disengagement or frustration
+
+The Talkies
+
+program—the primer to the Visualizing and Verbalizing (V/V) program—is designed for students who need simpler, smaller steps of instruction to establish the imagery-language connection.
+
+The goal of Talkies is to develop the dual coding imagery and language as a base for language comprehension and expression. Talkies is especially helpful for students with a limited oral vocabulary and/or limited ability to verbalize.
+
+Research indicates Talkies benefits students previously diagnosed with an autism spectrum disorder. Talkies is also ideal for any preschool child.
+
+Information taken from the Lindamood-Bell website
+
+www.lindamoodbell.com
+
+$55.00 per hour</div>
+          </article>
+        
+          <article class="program-card-detail" id="visualizing-verbalizing">
+            <h3>Visualizing Verbalizing®</h3>
+            <div class="program-body-text">Visualizing Verbalizing®
+
+Your child reads words accurately, but she doesn’t understand what she reads. Words seem to “go in one ear and out the other” and she struggles with following directions. Her parents express frustration about her weak short term and long term memory. Her teachers think she is not trying, and she has been labelled as having ADHD.
+
+Weak Concept Imagery
+
+A primary cause of language comprehension problems is difficulty creating an imagined gestalt. This is called weak
+
+concept imagery
+
+. This weakness causes individuals to get only “parts” of information they read or hear, but not the whole.
+
+Individuals of all ages may experience the symptoms of a weakness in concept imagery.
+
+This causes weakness in:
+
+Reading comprehension
+
+Listening comprehension
+
+Critical thinking and problem solving
+
+Following directions
+
+Memory
+
+Oral language expression
+
+Written language expression
+
+Grasping humor
+
+Interpreting social situations
+
+Understanding cause and effect
+
+The Visualizing and Verbalizing® (V/V®) program develops concept imagery—the ability to create an imagined or imaged gestalt from language—as a basis for comprehension and higher order thinking. The development of concept imagery improves reading and listening comprehension, memory, oral vocabulary, critical thinking, and writing.
+
+Information taken from the Lindamood-Bell website
+
+www.lindamoodbell.com
+
+$55.00 per hour</div>
+          </article>
+        
+          <article class="program-card-detail" id="love-and-logic">
+            <h3>LOVE AND LOGIC®</h3>
+            <div class="program-body-text">LOVE AND LOGIC®
+
+Independent Facilitator
+
+WHAT IS LOVE AND LOGIC® ALL ABOUT?
+
+FOR PARENTS:
+
+Since 1977, the Love and Logic Institute has been dedicated to making parenting and teaching fun and rewarding, instead of stressful and chaotic. We provide practical tools and techniques that help adults achieve respectful, healthy relationships with their children and help them prepare their kids for the real world. All of our work is based on a psychologically sound parenting and teaching philosophy called Love and Logic.
+
+Participants will learn how to put an end to arguing, back talk and begging.
+
+Love and Logic® teaches how to set limits without waging war while avoiding power struggles along the way. Parents will also learn to teach responsibility without losing their child’s love while guiding them to solve their own problems.
+
+Love and Logic ® will also give you strategies to teach kids to complete chores without reminders and without pay.
+
+FOR TEACHERS:
+
+Since 1977 the Love and Logic Institute has been dedicated to helping schools create an atmosphere where teachers are empowered to manage their classrooms, instead of their classrooms managing them. A classroom where teachers develop healthy respectful relationships with the kids and the kids are excited about learning.
+
+The guiding principles taught in the 9 Essential Skills program:
+
+Shared Control
+
+Shared thinking and decision making
+
+Applying empathy before delivering consequences
+
+Providing opportunities for building self-concept</div>
+          </article>
+        
+          <article class="program-card-detail" id="satact-test-prep">
+            <h3>SAT/ACT TEST PREP</h3>
+            <div class="program-body-text">TEST PREP ANNOUNCEMENT
+
+Is your child getting ready for their PSAT, SAT, ACT or PERT test(s)?
+
+Breakthroughs has an extensive stand
+
+ardized test prep
+
+Our Test Readiness Coaches will take your student step by step through any areas of weakness AND help your student increase their strengths for the best overall score!
+
+Contact us for
+
+consultation!
+
+Contact US
+
+CLICK HERE FOR ONLINE APPLICATION</div>
+          </article>
+        
+          <article class="program-card-detail" id="tutoring">
+            <h3>Tutoring</h3>
+            <div class="program-body-text">Tutoring
+
+Customized Plans & Packages
+
+Click Here for Programs
+
+Customized Plans
+
+Breakthroughs creates customized plans based on individual goals. Come to us with what you need and we'll work with you from there!
+
+Whether your child needs to catch up, keep up, or be challenged, our team works to tailor sessions based on their current curriculum.
+
+We offer an academic approach as unique as each student!
+
+Math (Common Core, Basic Math, Algebra 1 & II, Geometry, Trig, and Calculus)
+
+Science - Biology, Anatomy, & Chemistry
+
+Writing - FSA
+
+Reading/Comprehension
+
+English/Grammar
+
+Verbal & Nonverbal Memory
+
+Social & Emotional
+
+Processing Speed
+
+Critical Thinking
+
+Executive Function
+
+ALL ages & ALL levels
+
+Checkout "Did You Know" for more info! (Click Here)</div>
+          </article>
+        
+        </div>
+      </div>
+    </section>
+  </main>
+    
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+        <p class="footer-desc">
+          Professional, integrated therapeutic and educational care helping North Florida families thrive.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="team.html">Meet the Team</a></li>
+            <li><a href="rates-insurance.html">Rates &amp; Scholarships</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h5>Legal &amp; Policy</h5>
+          <ul>
+            <li><a href="rates-insurance.html">Intake Forms</a></li>
+            <li><a href="rates-insurance.html#privacy">Privacy Policy</a></li>
+            <li><a href="contact.html#locations">Our Location</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div class="footer-legal-blocks">
+          <p class="copyright-text">&copy; 2026 Breakthroughs of North Florida. All rights reserved.</p>
+          <p class="license-info">Clinical mental health counseling services are provided by licensed clinicians in the State of Florida. Tutoring represents specialized academic intervention and does not constitute psychological therapy.</p>
+          <p class="license-info"><strong>Affiliation Disclaimer:</strong> Breakthroughs of North Florida is not affiliated with, certified, endorsed, licensed, monitored or sponsored by Lindamood-Bell Learning Processes.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript for mobile menu toggling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        menuToggle.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+      });
+
+      // Close mobile menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          mobileNav.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

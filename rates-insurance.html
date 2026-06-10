@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rates, Scholarships, & Intake Forms | Yulee Services | Breakthroughs of North Florida</title>
+  <meta name="description" content="View accepted health insurance networks, Florida PEP/FES scholarship details, and download intake paperwork for new clients.">
+  
+  <!-- Google Fonts for Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Unique CSS overrides for secondary subpages */
+    .subpage-hero {
+      background: linear-gradient(135deg, var(--color-primary-navy) 0%, #0c3552 100%);
+      color: var(--color-text-light);
+      padding: 5rem 0 4rem 0;
+      text-align: center;
+    }
+    .subpage-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+    .subpage-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    /* Team Filtering styles */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--color-border-subtle);
+      background-color: var(--color-bg-surface);
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background-color: var(--color-bg-alt);
+    }
+    .filter-btn.active {
+      background-color: var(--color-primary-navy);
+      color: var(--color-text-light);
+      border-color: var(--color-primary-navy);
+    }
+    
+    /* Layout styling */
+    .subpage-content {
+      padding: 4rem 0;
+    }
+    
+    .team-grid-extended {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .team-bio-full {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+    
+    .education-text {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--color-primary-navy);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    
+    /* Programs layout */
+    .programs-detailed {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .program-card-detail {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .program-card-detail h3 {
+      font-size: 1.75rem;
+      color: var(--color-primary-navy);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--color-academic-primary);
+      padding-left: 1rem;
+    }
+    .program-body-text {
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      white-space: pre-wrap;
+    }
+    
+    /* Form & Insurance layout */
+    .insurance-section-detail {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .insurance-section-detail {
+        grid-template-columns: 1fr;
+      }
+      .subpage-hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .insurance-list {
+      list-style: none;
+      padding: 0;
+    }
+    .insurance-list li {
+      padding: 0.75rem 1rem;
+      background: var(--color-counseling-bg-light);
+      border-left: 4px solid var(--color-counseling-primary);
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: var(--color-primary-navy);
+    }
+    
+    .paperwork-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .paperwork-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .paperwork-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-main);
+    }
+    .paperwork-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Contact page overrides */
+    .contact-grid-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid-detail {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+    
+    .card-portal-box {
+      background: var(--color-bg-alt);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Keyboard Accessibility: Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-area" aria-label="Breakthroughs of North Florida Home">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="programs.html" class="nav-link">Our Programs</a></li>
+          <li><a href="team.html" class="nav-link">Meet the Team</a></li>
+          <li><a href="rates-insurance.html" class="nav-link">Scholarships &amp; Insurance</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button (Hamburger) -->
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="programs.html" class="mobile-nav-link">Our Programs</a></li>
+        <li><a href="team.html" class="mobile-nav-link">Meet the Team</a></li>
+        <li><a href="rates-insurance.html" class="mobile-nav-link">Scholarships &amp; Insurance</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
+        <li><a href="contact.html" class="btn btn-primary btn-block">Schedule Consultation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="subpage-hero" style="background: linear-gradient(135deg, #1b3d54 0%, #0f2535 100%);">
+      <div class="container">
+        <h1>Scholarships, Insurance, &amp; Paperwork</h1>
+        <p>Accepted health insurance networks, Florida scholarships (Step Up for Students), and new client intake paperwork download links.</p>
+      </div>
+    </section>
+
+    <section class="subpage-content">
+      <div class="container">
+        
+        <div class="insurance-section-detail">
+          <div>
+            <h3>Accepted Health Insurances</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--color-text-muted);">Health insurance coverage applies to clinical mental health counseling and therapeutic services only. We are in-network with the following major providers:</p>
+            <ul class="insurance-list">
+              <li>Florida Blue / Blue Cross Blue Shield</li>
+              <li>Aetna</li>
+              <li>Cigna</li>
+              <li>Tricare (Military Care)</li>
+              <li>UnitedHealthcare (UHC)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Florida Scholarship Programs</h3>
+            <p style="margin-bottom: 1rem; color: var(--color-text-muted);">Breakthroughs of North Florida is an approved educational provider for the <strong>Step Up for Students</strong> scholarship network. Families can utilize scholarship awards to cover educational tutoring, Barton, and Lindamood-Bell® specialized programs:</p>
+            <div class="card-portal-box" style="margin-bottom: 1rem;">
+              <h4 style="color: var(--color-primary-navy);">Family Empowerment Scholarship - Unique Abilities (FES-UA)</h4>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.5rem;">For students with identified unique abilities or diagnosis. FES-UA funding can be utilized to directly cover the cost of customized educational tutoring and sensory-cognitive programs.</p>
+            </div>
+            <div class="card-portal-box">
+              <h4 style="color: var(--color-primary-navy);">Personalized Education Program (PEP) / Florida Choice</h4>
+              <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.5rem;">For homeschool or personalized educational paths. Award funds can be applied toward Barton spelling, Lindamood-Bell methods, and curriculum support sessions.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin: 4rem 0; border: 0; border-top: 1px solid var(--color-border-subtle);">
+
+        <div id="forms">
+          <h3>Client Forms &amp; Paperwork</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Please review, print, and complete the appropriate intake packet prior to your first session. This ensures a smooth onboarding process for your family.</p>
+          
+          <div class="paperwork-grid">
+            <div class="paperwork-card">
+              <div>
+                <h4>Counseling Intake Packet</h4>
+                <p>For new clinical mental health clients. Includes clinical disclosures, consent to treat, and history intake.</p>
+              </div>
+              <a href="https://forms.gle/X3RCMwhWqUVp6wNT8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">Complete Online Intake</a>
+            </div>
+            
+            <div class="paperwork-card">
+              <div>
+                <h4>Academic &amp; Tutoring Intake</h4>
+                <p>For educational services, Barton tutoring, and Lindamood-Bell programs. Includes academic profile forms.</p>
+              </div>
+              <a href="https://forms.gle/X3RCMwhWqUVp6wNT8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-block">Complete Academic Intake</a>
+            </div>
+
+            <div class="paperwork-card">
+              <div>
+                <h4>TherapyNotes® Disclosures</h4>
+                <p>Mandatory privacy disclosures, HIPAA agreements, and billing consent forms for insurance submission.</p>
+              </div>
+              <a href="https://www.therapyportal.com/p/breakthroughs32097/" target="_blank" class="btn btn-secondary btn-block">Access Client Portal</a>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin: 4rem 0; border: 0; border-top: 1px solid var(--color-border-subtle);">
+
+        <div id="privacy">
+          <h3>Privacy Policy &amp; Disclosures</h3>
+          <div style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); white-space: pre-wrap;">Notice of Privacy Practices
+
+THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.
+
+YOUR RIGHTS
+
+Your rights regarding PHI are explained below. To exercise these rights, please submit a written request to the Practice at the address noted below.
+
+To inspect and copy PHI.
+
+• You can ask for an electronic or paper copy of PHI. The Practice may charge you a reasonable fee.
+
+• The Practice may deny your request if it believes the disclosure will endanger your life or another person's life. You may have a right to have this decision reviewed.
+
+To amend PHI.
+
+• You can ask to correct PHI you believe is incorrect or incomplete. The Practice may require you to make your request in writing and provide a reason for the request.
+
+• The Practice may deny your request. The Practice will send a written explanation for the denial and allow you to submit a written statement of disagreement.
+
+To request confidential communications.
+
+• You can ask the Practice to contact you in a specific way. The Practice will say “yes” to all reasonable requests.
+
+To limit what is used or shared.
+
+• You can ask the Practice not to use or share PHI for treatment, payment, or business operations. The Practice is not required to agree if it would affect your care.
+
+• If you pay for a service or health care item out-of-pocket in full, you can ask the Practice not to share PHI with your health insurer.
+
+• You can ask for the Practice not to share your PHI with family members or friends by stating the specific restriction requested and to whom you want the restriction to apply.
+
+To obtain a list of those with whom your PHI has been shared.
+
+• You can ask for a list, called an accounting, of the times your health information has been shared. You can receive one accounting every 12 months at no charge, but you may be charged a reasonable fee if you ask for one more frequently.
+
+To receive a copy of this Notice.
+
+• You can ask for a paper copy of this Notice, even if you agreed to receive the Notice electronically.
+
+To choose someone to act for you.
+
+• If you have given someone medical power of attorney or if someone is your legal guardian, that person can exercise your rights.
+
+To file a complaint if you feel your rights are violated.
+
+• You can file a complaint by contacting the Practice using the following information:
+
+Marty Edwards
+
+• You can file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights by sending a letter to 200 Independence Avenue, S.W., Washington, D.C. 20201, calling 1-877-696-6775, or visiting
+
+www.hhs.gov/ocr/privacy/hipaa/complaints/
+
+• The Practice will not retaliate against you for filing a complaint.
+
+To opt out of receiving fundraising communications.
+
+• The Practice may contact you for fundraising efforts, but you can ask not to be contacted again.
+
+OUR USES AND DISCLOSURES
+
+1. Routine Uses and Disclosures of PHI
+
+The Practice is permitted under federal law to use and disclose PHI, without your written authorization, for certain routine uses and disclosures, such as those made for treatment, payment, and the operation of our business. The Practice typically uses or shares your health information in the following ways:
+
+To treat you.
+
+• The Practice can use and share PHI with other professionals who are treating you.
+
+• Example: Your primary care doctor asks about your mental health treatment.
+
+To run the health care operations.
+
+• The Practice can use and share PHI to run the business, improve your care, and contact you.
+
+• Example: The Practice uses PHI to send you appointment reminders if you choose.
+
+To bill for your services.
+
+• The Practice can use and share PHI to bill and get payment from health plans or other entities.
+
+• Example: The Practice gives PHI to your health insurance plan so it will pay for your services.
+
+2. Uses and Disclosures of PHI That May Be Made Without Your Authorization or Opportunity to Object
+
+The Practice may use or disclose PHI without your authorization or an opportunity for you to object, including:
+
+To help with public health and safety issues
+
+• Public health: To prevent the spread of disease, assist in product recalls, and report adverse reactions to medication.
+
+• Required by the Secretary of Health and Human Services: We may be required to disclose your PHI to the Secretary of Health and Human Services to investigate or determine our compliance with the requirements of the final rule on Standards for Privacy of Individually Identifiable Health Information.
+
+• Health oversight: For audits, investigations, and inspections by government agencies that oversee the health care system, government benefit programs, other government regulatory programs, and civil rights laws.
+
+• Serious threat to health or safety: To prevent a serious and imminent threat.
+
+• Abuse or Neglect: To report abuse, neglect, or domestic violence.
+
+To comply with law, law enforcement, or other government requests
+
+• Required by law: If required by federal, state or local law.
+
+• Judicial and administrative proceedings: To respond to a court order, subpoena, or discovery request.
+
+• Law enforcement: For law locate and identify you or disclose information about a victim of a crime.
+
+• Specialized Government Functions: For military or national security concerns, including intelligence, protective services for heads of state, or your security clearance.
+
+• National security and intelligence activities: For intelligence, counterintelligence, protection of the President, other authorized persons or foreign heads of state, for purpose of determining your own security clearance and other national security activities authorized by law.
+
+• Workers' Compensation: To comply with workers' compensation laws or support claims.
+
+To comply with other requests
+
+• Coroners and Funeral Directors: To perform their legally authorized duties.
+
+• Organ Donation: For organ donation or transplantation.
+
+• Research: For research that has been approved by an institutional review board.
+
+• Inmates: The Practice created or received your PHI in the course of providing care.
+
+• Business Associates: To organizations that perform functions, activities or services on our behalf.
+
+3. Uses and Disclosures of PHI That May Be Made With Your Authorization or Opportunity to Object
+
+Unless you object, the Practice may disclose PHI:
+
+To your family, friends, or others if PHI directly relates to that person's involvement in your care.
+
+If it is in your best interest because you are unable to state your preference.
+
+4. Uses and Disclosures of PHI Based Upon Your Written Authorization
+
+The Practice must obtain your written authorization to use and/or disclose PHI for the following purposes:
+
+Marketing, sale of PHI, and psychotherapy notes.
+
+You may revoke your authorization, at any time, by contacting the Practice in writing, using the information above. The Practice will not use or share PHI other than as described in Notice unless you give your permission in writing.</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+    
+  <!-- Global Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img class="logo-img" src="logo.png" alt="Breakthroughs of North Florida Logo">
+        <p class="footer-desc">
+          Professional, integrated therapeutic and educational care helping North Florida families thrive.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-links-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="team.html">Meet the Team</a></li>
+            <li><a href="rates-insurance.html">Rates &amp; Scholarships</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h5>Legal &amp; Policy</h5>
+          <ul>
+            <li><a href="rates-insurance.html">Intake Forms</a></li>
+            <li><a href="rates-insurance.html#privacy">Privacy Policy</a></li>
+            <li><a href="contact.html#locations">Our Location</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div class="footer-legal-blocks">
+          <p class="copyright-text">&copy; 2026 Breakthroughs of North Florida. All rights reserved.</p>
+          <p class="license-info">Clinical mental health counseling services are provided by licensed clinicians in the State of Florida. Tutoring represents specialized academic intervention and does not constitute psychological therapy.</p>
+          <p class="license-info"><strong>Affiliation Disclaimer:</strong> Breakthroughs of North Florida is not affiliated with, certified, endorsed, licensed, monitored or sponsored by Lindamood-Bell Learning Processes.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Javascript for mobile menu toggling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        menuToggle.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+      });
+
+      // Close mobile menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          mobileNav.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
