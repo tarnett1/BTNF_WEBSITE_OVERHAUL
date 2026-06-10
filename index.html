@@ -34,8 +34,8 @@
         <ul class="nav-list">
           <li><a href="#services" class="nav-link">Our Services</a></li>
           <li><a href="#portals" class="nav-link">Client Portals</a></li>
-          <li><a href="#badges" class="nav-link">Scholarships & Insurance</a></li>
-          <li><a href="#about" class="nav-link">Our Philosophy</a></li>
+          <li><a href="#badges" class="nav-link">Scholarships &amp; Insurance</a></li>
+          <li><a href="#team" class="nav-link">Meet the Team</a></li>
           <li><a href="#contact" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
@@ -44,7 +44,26 @@
       <div class="header-cta">
         <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
       </div>
+
+      <!-- Mobile Menu Toggle Button (Hamburger) -->
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="#services" class="mobile-nav-link">Our Services</a></li>
+        <li><a href="#portals" class="mobile-nav-link">Client Portals</a></li>
+        <li><a href="#badges" class="mobile-nav-link">Scholarships &amp; Insurance</a></li>
+        <li><a href="#team" class="mobile-nav-link">Meet the Team</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact Us</a></li>
+        <li><a href="#contact" class="btn btn-primary btn-block">Schedule Consultation</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main Content Wrapper -->
@@ -378,6 +397,80 @@
       </div>
     </section>
 
+    <!-- Meet Our Team Section -->
+    <section id="team" class="team-section" aria-labelledby="team-heading">
+      <div class="container">
+        <h2 id="team-heading" class="section-title text-center">Meet Our Dedicated Specialists</h2>
+        <p class="section-subtitle text-center">
+          Our multidisciplinary team of licensed therapists, clinical directors, and educational specialists works together to support your family's success.
+        </p>
+
+        <div class="team-grid">
+          <!-- Staff Card 1: Marty Edwards -->
+          <div class="team-card">
+            <div class="team-card-header">
+              <div class="team-avatar-placeholder" aria-hidden="true" style="background-color: var(--color-counseling-bg-light); color: var(--color-counseling-primary);">ME</div>
+              <div class="team-meta">
+                <h4>Marty Edwards, LMFT</h4>
+                <span class="team-role">Founder &amp; Co-Owner</span>
+                <span class="team-badge badge-counseling">Clinical Supervisor</span>
+              </div>
+            </div>
+            <p class="team-bio">
+              Marty is a Licensed Marriage &amp; Family Therapist (LMFT) and Qualified Supervisor in the State of Florida. She has over 10 years of experience teaching in public and private schools, and providing clinical therapy to individuals, marriages, and families. She specializes in anxiety, depression, grief, trauma, and Love and Logic® parent training.
+            </p>
+          </div>
+
+          <!-- Staff Card 2: Lizz Arnett -->
+          <div class="team-card">
+            <div class="team-card-header">
+              <div class="team-avatar-placeholder" aria-hidden="true" style="background-color: var(--color-academic-bg-light); color: var(--color-academic-primary);">LA</div>
+              <div class="team-meta">
+                <h4>Lizz Arnett</h4>
+                <span class="team-role">Educational Services Specialist</span>
+                <span class="team-badge badge-academic">Tutoring Coordinator</span>
+              </div>
+            </div>
+            <p class="team-bio">
+              Lizz is a knowledgeable educational specialist with extensive training in Orton-Gillingham (Barton spelling systems) and Lindamood-Bell® methods. Dedicated to empowering students, she focuses on identifying learning differences and designing customized learning strategies to help children and neurodivergent learners thrive in their educational journeys.
+            </p>
+          </div>
+
+          <!-- Staff Card 3: Sound Mind Psychiatric Partner -->
+          <div class="team-card">
+            <div class="team-card-header">
+              <div class="team-avatar-placeholder" aria-hidden="true" style="background-color: #e0e7ff; color: #4338ca;">CG</div>
+              <div class="team-meta">
+                <h4>Casey Goss, PMHNP</h4>
+                <span class="team-role">Psychiatric Mental Health Partner</span>
+                <span class="team-badge" style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;">Sound Mind Solutions</span>
+              </div>
+            </div>
+            <p class="team-bio">
+              Through our clinical partnership with Sound Mind Psychiatric Solutions, Casey coordinates specialized psychiatric mental health evaluations, medication management, and supportive services alongside our counseling team, providing families with integrated, holistic care.
+            </p>
+          </div>
+
+          <!-- Staff Card 4: Clinical & Tutoring Team -->
+          <div class="team-card team-card-summary">
+            <div class="team-card-header">
+              <div class="team-avatar-placeholder team-avatar-group" aria-hidden="true" style="background-color: #f5f2eb; color: var(--color-primary-navy);">15+</div>
+              <div class="team-meta">
+                <h4>Licensed Counselors &amp; Educators</h4>
+                <span class="team-role">Clinical &amp; Academic Team</span>
+              </div>
+            </div>
+            <p class="team-bio">
+              Our full staff includes over 15 licensed therapists, registered mental health interns, and specialized academic tutors. We match each client with a dedicated provider specialized in their unique needs, whether child therapy, adult counseling, Barton reading, or SAT/ACT prep.
+            </p>
+            <div class="team-card-footer" style="margin-top: auto;">
+              <a href="#contact" class="btn btn-secondary btn-block">Find Your Match</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact & Intake Section -->
     <section id="contact" class="contact-section" aria-labelledby="contact-heading">
       <div class="container contact-container">
@@ -526,6 +619,32 @@
       </div>
     </div>
   </footer>
+
+  <!-- Javascript for mobile menu toggling and smooth scrolling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        menuToggle.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+      });
+
+      // Close mobile menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.classList.remove('is-active');
+          mobileNav.classList.remove('is-active');
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
