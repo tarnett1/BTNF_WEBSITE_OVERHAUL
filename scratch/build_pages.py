@@ -208,13 +208,15 @@ HEAD_TEMPL = """<!DOCTYPE html>
     }}
     .subpage-hero h1 {{
       color: var(--color-primary-navy);
-      font-size: 3rem;
+      font-size: clamp(1.75rem, 5vw, 3rem);
       margin-bottom: 1rem;
       font-weight: 800;
       letter-spacing: -0.025em;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }}
     .subpage-hero p {{
-      color: var(--color-text-muted);
+      color: var(--color-text-main);
       font-size: 1.25rem;
       max-width: 800px;
       margin: 0 auto;
@@ -230,7 +232,7 @@ HEAD_TEMPL = """<!DOCTYPE html>
       color: var(--color-academic-primary-dark);
     }}
     .subpage-hero.hero-academic p {{
-      color: #5f4a1e;
+      color: #3a2805;
     }}
     
     /* Counseling Theme overrides */
@@ -242,7 +244,7 @@ HEAD_TEMPL = """<!DOCTYPE html>
       color: var(--color-counseling-primary-dark);
     }}
     .subpage-hero.hero-counseling p {{
-      color: #1e4b66;
+      color: #0f2b3c;
     }}
     
     /* Team Filtering styles */
@@ -378,7 +380,7 @@ HEAD_TEMPL = """<!DOCTYPE html>
         grid-template-columns: 1fr;
       }}
       .subpage-hero h1 {{
-        font-size: 2.25rem;
+        font-size: 1.75rem;
       }}
     }}
     
