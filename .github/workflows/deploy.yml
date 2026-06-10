@@ -47,7 +47,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: audit
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
