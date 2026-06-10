@@ -171,15 +171,6 @@
     "category": "education"
   },
   {
-    "key": "joanna-mcintosh",
-    "name": "Joanna McIntosh",
-    "role": "Educational Services Specialist",
-    "education": "",
-    "bio": "/ Certified Teacher\n\nHi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I graduated with my bachelor\u2019s degree in secondary math education from Florida Agricultural and Mechanical University. I am a certified and former teacher. I taught math in a public school for about two years. Prior to that I had worked for Florida Virtual School as an intern. I started out teaching math here at Breakthroughs for a little over a year, as well as tutoring other programs. One thing about myself is that no matter where I go, I will always have a love and passion for education. Three things that I aim to do and hold as a life motto are to inspire, empower, and educate. I will use the information that I have learned from my education and life experiences to help bridge educational gaps.",
-    "image": "images/joanna_mcintosh.jpg",
-    "category": "education"
-  },
-  {
     "key": "lizz-arnett",
     "name": "Lizz Arnett",
     "role": "Educational Services Specialist",
@@ -188,6 +179,15 @@
     "image": "images/lizz.jpg",
     "category": "education",
     "reports_to": "Alex Beveridge"
+  },
+  {
+    "key": "joanna-mcintosh",
+    "name": "Joanna McIntosh",
+    "role": "Educational Services Specialist",
+    "education": "",
+    "bio": "/ Certified Teacher\n\nHi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I graduated with my bachelor\u2019s degree in secondary math education from Florida Agricultural and Mechanical University. I am a certified and former teacher. I taught math in a public school for about two years. Prior to that I had worked for Florida Virtual School as an intern. I started out teaching math here at Breakthroughs for a little over a year, as well as tutoring other programs. One thing about myself is that no matter where I go, I will always have a love and passion for education. Three things that I aim to do and hold as a life motto are to inspire, empower, and educate. I will use the information that I have learned from my education and life experiences to help bridge educational gaps.",
+    "image": "images/joanna_mcintosh.jpg",
+    "category": "education"
   },
   {
     "key": "madison-moore",
