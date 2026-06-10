@@ -522,7 +522,7 @@ def build_team():
     coaching_team = [m for m in staff_list if m["key"] == "madison-moore"]
     
     # Filter counseling and education keeping leadership visible in their respective functional grids as well
-    counseling_team = [m for m in staff_list if m["category"] == "counseling" and m["key"] not in ["marty-edwards", "mike-edwards"]]
+    counseling_team = [m for m in staff_list if m["category"] == "counseling" and m["key"] not in ["mike-edwards"]]
     education_team = [m for m in staff_list if m["category"] == "education"]
     
     # Helper to generate a single staff card
