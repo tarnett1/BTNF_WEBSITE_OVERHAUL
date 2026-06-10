@@ -15,7 +15,19 @@ programs_list = load_json("scratch/data/programs.json")
 other_data = load_json("scratch/data/other.json")
 
 # Define template blocks
-NAV_HTML = """
+BANNER_HTML = """
+  <!-- Concept Proposal Banner -->
+  <div class="demo-banner" id="demo-banner">
+    <div class="container demo-banner-content">
+      <div class="demo-banner-text">
+        ✨ <strong>Interactive Proposal Preview:</strong> This website is a design concept and content migration draft showing what your new website could look like. Active features (like intake forms and TherapyPortal links) point to current online integrations.
+      </div>
+      <button class="demo-banner-close" onclick="document.getElementById('demo-banner').style.display='none'" aria-label="Dismiss proposal preview notice">&times;</button>
+    </div>
+  </div>
+"""
+
+NAV_HTML = BANNER_HTML + """
   <!-- Keyboard Accessibility: Skip to Main Content Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -823,6 +835,16 @@ def update_index_links():
         
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
+        
+    # Clean existing banner to avoid duplicates
+    content = re.sub(
+        r'<!-- Concept Proposal Banner -->.*?<!-- Keyboard Accessibility: Skip to Main Content Link -->',
+        '<!-- Keyboard Accessibility: Skip to Main Content Link -->',
+        content,
+        flags=re.DOTALL
+    )
+    # Insert proposal banner
+    content = content.replace("<body>", "<body>\n" + BANNER_HTML)
         
     # Replace navbar links
     # Desktop links

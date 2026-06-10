@@ -1524,4 +1524,63 @@ a:hover {
   margin: 0;
 }
 
+/* ----------------------------------------------------
+   CONCEPT PROPOSAL BANNER
+   ---------------------------------------------------- */
+.demo-banner {
+  background-color: var(--color-academic-bg-light, #fdfaf2);
+  border-bottom: 2px solid var(--color-academic-primary, #B79951);
+  color: var(--color-primary-navy, #1a4f76);
+  font-size: 0.85rem;
+  padding: 0.65rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  font-family: var(--font-family-body), sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.demo-banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.demo-banner-text {
+  flex-grow: 1;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.demo-banner-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+  padding: 0 0.5rem;
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-banner-close:hover {
+  color: var(--color-primary-navy);
+}
+
+@media (max-width: 768px) {
+  .demo-banner {
+    font-size: 0.775rem;
+    padding: 0.75rem 0;
+  }
+  .demo-banner-content {
+    gap: 0.5rem;
+  }
+}
+
+
 
