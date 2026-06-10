@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Aetna Wordmark and Heart style logo -->
+  <text x="40" y="65" font-family="'Plus Jakarta Sans', sans-serif" font-size="48" font-weight="800" fill="#7b1fa2" letter-spacing="-2">aetna</text>
+  <!-- Heart graphic next to it -->
+  <path d="M 180,45 C 180,35 190,25 200,25 C 210,25 220,35 220,45 C 220,60 180,80 180,80 C 180,80 140,60 140,45 C 140,35 150,25 160,25 C 170,25 180,35 180,45 Z" fill="#7b1fa2" transform="translate(15, 0)"/>
+</svg>

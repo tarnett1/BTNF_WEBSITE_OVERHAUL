@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- UHC "U" Logo Mark -->
+  <path d="M 30,15 H 65 V 55 C 65,70 50,85 30,85 C 10,85 0,70 0,55 Z" fill="#00263e" transform="translate(35, 0)"/>
+  <path d="M 12,15 H 23 V 55 C 23,65 17,73 12,73 Z" fill="#e87722" transform="translate(35, 0)"/>
+  <!-- Text -->
+  <text x="125" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="800" fill="#00263e">UnitedHealthcare</text>
+</svg>
