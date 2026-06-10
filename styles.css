@@ -1738,9 +1738,8 @@ a:hover {
 /* Floating Socials Charm Bar */
 .socials-charm {
   position: fixed;
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 24px;
+  top: 100px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1775,7 +1774,7 @@ a:hover {
 
 .charm-tooltip {
   position: absolute;
-  left: 54px;
+  right: 54px;
   background-color: var(--color-primary-navy);
   color: var(--color-text-light);
   padding: 4px 8px;
@@ -1785,7 +1784,7 @@ a:hover {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-10px);
+  transform: translateX(10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
   box-shadow: var(--shadow-sm);
 }
@@ -1793,12 +1792,12 @@ a:hover {
 .charm-tooltip::before {
   content: "";
   position: absolute;
-  right: 100%;
+  left: 100%;
   top: 50%;
   transform: translateY(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: transparent var(--color-primary-navy) transparent transparent;
+  border-color: transparent transparent transparent var(--color-primary-navy);
 }
 
 .charm-link:hover .charm-tooltip {
