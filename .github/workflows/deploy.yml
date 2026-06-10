@@ -1,0 +1,69 @@
+name: CI/CD Deploy Static Site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Allow running manually from the Actions tab
+  workflow_dispatch:
+
+# Set permissions for GITHUB_TOKEN to deploy to GitHub Pages and authenticate OIDC
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments running at the same time
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job 1: Quality & Security Checks (CI)
+  audit:
+    name: Lint & Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Cybersecurity measure: Scan for hardcoded credentials / secrets
+      - name: GitSecret Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true # Let workflow pass but flag warnings
+
+      # HTML Validation
+      - name: HTMLHint Validation
+        run: |
+          npm install -g htmlhint
+          htmlhint index.html
+
+  # Job 2: Deploy to GitHub Pages (CD)
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: audit
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Upload root folder assets
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
