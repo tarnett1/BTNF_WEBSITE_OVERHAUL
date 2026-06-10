@@ -232,7 +232,7 @@ HEAD_TEMPL = """<!DOCTYPE html>
       color: var(--color-academic-primary-dark);
     }}
     .subpage-hero.hero-academic p {{
-      color: #3a2805;
+      color: #271a01;
     }}
     
     /* Counseling Theme overrides */
@@ -244,7 +244,7 @@ HEAD_TEMPL = """<!DOCTYPE html>
       color: var(--color-counseling-primary-dark);
     }}
     .subpage-hero.hero-counseling p {{
-      color: #0f2b3c;
+      color: #041822;
     }}
     
     /* Team Filtering styles */

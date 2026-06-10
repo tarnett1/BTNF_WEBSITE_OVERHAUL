@@ -22,14 +22,14 @@
   /* Academic Gold/Tan: Warm neutral, intellect, stability */
   --color-academic-primary: #B79951; 
   --color-academic-primary-hover: #987e3f;
-  --color-academic-primary-dark: #735414;  /* Deep gold for high-contrast text on light bg */
+  --color-academic-primary-dark: #4c3303;  /* Deep chocolate gold for high-contrast text on light bg */
   --color-academic-bg-light: #faf6eb;
   --color-academic-border: #eadaa2;
   
   /* Counseling Teal/Slate Blue: Calming, clinical, supportive */
   --color-counseling-primary: #0369a1; 
   --color-counseling-primary-hover: #075985;
-  --color-counseling-primary-dark: #025a8b; /* Deep slate blue for high-contrast text on light bg */
+  --color-counseling-primary-dark: #083344; /* Deep midnight blue for high-contrast text on light bg */
   --color-counseling-bg-light: #f0f9ff;
   --color-counseling-border: #bae6fd;
   
