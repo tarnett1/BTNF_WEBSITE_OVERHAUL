@@ -3,6 +3,7 @@
 # Ensure we're in the repository directory
 cd "$(dirname "$0")"
 
+
 # Check if there are any changes
 if [ -z "$(git status --porcelain)" ]; then
   echo "No changes detected. Working directory is clean."

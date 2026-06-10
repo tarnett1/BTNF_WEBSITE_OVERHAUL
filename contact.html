@@ -242,13 +242,23 @@
 </head>
 <body>
 
-  <!-- Concept Proposal Banner -->
-  <div class="demo-banner" id="demo-banner">
-    <div class="container demo-banner-content">
-      <div class="demo-banner-text">
-        ✨ <strong>Interactive Proposal Preview:</strong> This website is a design concept and content migration draft showing what your new website could look like. Active features (like intake forms and TherapyPortal links) point to current online integrations.
-      </div>
-      <button class="demo-banner-close" onclick="document.getElementById('demo-banner').style.display='none'" aria-label="Dismiss proposal preview notice">&times;</button>
+  <!-- Floating Collapsible Proposal Guide Widget -->
+  <div class="proposal-widget collapsed" id="proposal-widget">
+    <button class="proposal-widget-toggle" onclick="toggleProposalWidget()" aria-expanded="false" aria-label="Toggle proposal information guide">
+      <span class="widget-toggle-icon">✨</span>
+      <span class="widget-toggle-text">Proposal Guide &amp; Highlights</span>
+      <span class="widget-toggle-arrow">▲</span>
+    </button>
+    <div class="proposal-widget-body">
+      <h4>Interactive Website Proposal</h4>
+      <p>This interactive concept draft demonstrates a modern, accessible structure for your new website.</p>
+      <ul class="widget-highlights" style="margin: 10px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+        <li style="position: relative; padding-left: 18px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Multi-Page Layout:</strong> Proposed 5-page setup (Home, Programs, Team, Rates/Insurance, Contact) to present extensive copy clearly.</li>
+        <li style="position: relative; padding-left: 18px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Accessibility Standard:</strong> Custom high-contrast theme (including accessible deep gold and blue text), readable typography, and keyboard landmarks designed for reading/learning differences.</li>
+        <li style="position: relative; padding-left: 18px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Functional Portals:</strong> Links securely connect to your active intakes (Google Forms) and client portal (TherapyPortal).</li>
+        <li style="position: relative; padding-left: 18px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Concept Status:</strong> Copy and structure are drafts proposed to replace your original Google Site.</li>
+      </ul>
+      <p class="widget-note" style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic; border-top: 1px solid var(--color-border-subtle); padding-top: 6px; margin-top: 6px; margin-bottom: 0;">Marty &amp; Mike: Click this header to collapse/expand this guide.</p>
     </div>
   </div>
 
@@ -404,7 +414,7 @@
     </div>
   </footer>
 
-  <!-- Javascript for mobile menu toggling -->
+  <!-- Javascript for mobile menu toggling and proposal widget -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const menuToggle = document.querySelector('.menu-toggle');
@@ -427,6 +437,32 @@
           mobileNav.classList.remove('is-active');
         });
       });
+    });
+
+    // Toggle floating proposal widget
+    function toggleProposalWidget() {
+      const widget = document.getElementById('proposal-widget');
+      if (widget) {
+        const collapsed = widget.classList.toggle('collapsed');
+        localStorage.setItem('proposal_widget_collapsed', collapsed ? 'true' : 'false');
+        const toggleBtn = widget.querySelector('.proposal-widget-toggle');
+        if (toggleBtn) {
+          toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        }
+      }
+    }
+
+    // Restore proposal widget state
+    document.addEventListener('DOMContentLoaded', () => {
+      const isCollapsed = localStorage.getItem('proposal_widget_collapsed');
+      const widget = document.getElementById('proposal-widget');
+      if (widget && isCollapsed === 'false') {
+        widget.classList.remove('collapsed');
+        const toggleBtn = widget.querySelector('.proposal-widget-toggle');
+        if (toggleBtn) {
+          toggleBtn.setAttribute('aria-expanded', 'true');
+        }
+      }
     });
   </script>
 </body>
