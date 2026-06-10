@@ -1456,16 +1456,25 @@ a:hover {
   align-items: center;
 }
 
+.team-avatar,
 .team-avatar-placeholder {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.team-avatar {
+  object-fit: cover;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.team-avatar-placeholder {
   font-weight: 700;
   font-size: var(--font-size-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   letter-spacing: 0.05em;
   font-family: var(--font-family-headings);
 }
