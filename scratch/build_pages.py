@@ -55,6 +55,7 @@ NAV_HTML = PROPOSAL_WIDGET_HTML + """
           <li><a href="programs.html" class="nav-link">Our Programs</a></li>
           <li><a href="team.html" class="nav-link">Meet the Team</a></li>
           <li><a href="rates-insurance.html" class="nav-link">Scholarships &amp; Insurance</a></li>
+          <li><a href="contact.html#portals" class="nav-link">Client Portals</a></li>
           <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
@@ -79,6 +80,7 @@ NAV_HTML = PROPOSAL_WIDGET_HTML + """
         <li><a href="programs.html" class="mobile-nav-link">Our Programs</a></li>
         <li><a href="team.html" class="mobile-nav-link">Meet the Team</a></li>
         <li><a href="rates-insurance.html" class="mobile-nav-link">Scholarships &amp; Insurance</a></li>
+        <li><a href="contact.html#portals" class="mobile-nav-link">Client Portals</a></li>
         <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
         <li><a href="contact.html" class="btn btn-primary btn-block">Schedule Consultation</a></li>
       </ul>
@@ -959,11 +961,11 @@ def build_contact():
               <h3>Office Location</h3>
               <p style="color: var(--color-text-muted);">We are conveniently located in Yulee, serving Fernandina Beach, Amelia Island, and Nassau County:</p>
               <p style="font-weight: 600; color: var(--color-text-main); margin: 0.5rem 0;">87003 Professional Way<br>Yulee, Florida 32097</p>
-              <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x88e44c20579e0bf5%3A0xe9ee95e5ef0de367!2s87003%20Professional%20Way%2C%20Yulee%2C%20FL%2032097!5e0!3m2!1sen!2sus!4v1717900000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+              <iframe class="map-frame" src="https://maps.google.com/maps?q=87003+Professional+Way,+Yulee,+FL+32097&amp;output=embed" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
 
-          <div>
+          <div id="portals">
             <h3>Secure Client Portals</h3>
             <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Access billing statements, schedule appointments, and submit documentation securely through our clinical and educational onboarding portals:</p>
             

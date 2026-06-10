@@ -1414,7 +1414,10 @@ a:hover {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.3s ease-in-out, opacity 0.25s ease-in-out;
-  z-index: 95;
+  z-index: 150;
+  max-height: calc(100vh - 100%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav.is-active {
