@@ -1599,8 +1599,24 @@ a:hover {
 }
 
 .proposal-widget.collapsed {
-  width: 280px;
+  width: 340px;
   border-color: var(--color-primary-navy);
+}
+
+.proposal-widget-toggle .collapsed-text {
+  display: none;
+}
+
+.proposal-widget-toggle .expanded-text {
+  display: inline;
+}
+
+.proposal-widget.collapsed .proposal-widget-toggle .collapsed-text {
+  display: inline;
+}
+
+.proposal-widget.collapsed .proposal-widget-toggle .expanded-text {
+  display: none;
 }
 
 .proposal-widget-toggle {
