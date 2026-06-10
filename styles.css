@@ -1603,19 +1603,24 @@ a:hover {
   border-color: var(--color-primary-navy);
 }
 
-.proposal-widget-toggle .collapsed-text {
+.widget-collapsed-msg {
   display: none;
+  font-size: 0.775rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
 }
 
-.proposal-widget-toggle .expanded-text {
-  display: inline;
+.widget-expanded-content {
+  display: block;
 }
 
-.proposal-widget.collapsed .proposal-widget-toggle .collapsed-text {
-  display: inline;
+.proposal-widget.collapsed .widget-collapsed-msg {
+  display: block;
 }
 
-.proposal-widget.collapsed .proposal-widget-toggle .expanded-text {
+.proposal-widget.collapsed .widget-expanded-content {
   display: none;
 }
 
@@ -1661,14 +1666,14 @@ a:hover {
   padding: 1.25rem;
   font-size: 0.825rem;
   line-height: 1.5;
-  transition: max-height 0.3s ease, opacity 0.25s ease;
+  max-height: 800px;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .proposal-widget.collapsed .proposal-widget-body {
-  max-height: 0;
-  padding: 0;
-  opacity: 0;
-  pointer-events: none;
+  max-height: 100px;
+  padding: 0.75rem 1.25rem;
 }
 
 .proposal-widget-body h4 {
