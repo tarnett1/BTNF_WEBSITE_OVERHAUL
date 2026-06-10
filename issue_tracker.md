@@ -15,7 +15,7 @@ This tracker monitors the status of design concept enhancements, active bug fixe
 
 | Category | Issue Description | Priority | Status | Resolution |
 | :--- | :--- | :---: | :---: | :--- |
-| **Navigation** | Top nav menu items disappearing/changing dynamically on subpages | High | `[x]` Resolved | Standardized `NAV_HTML` across all pages (including `index.html`) so menu links are identical everywhere. |
+| **Navigation** | Top nav menu items disappearing/changing dynamically on subpages | High | `[x]` Resolved | Standardized `NAV_HTML` across all pages (including `index.html`). Standardized all footer quick links. Aligned mobile menu switch breakpoints to `992px` and added layout-responsive font/gap scaling for viewports under `1200px` to prevent overflow-wrapping from clipping links. |
 | **Integrations** | Google Maps embed failing with "Invalid pb parameter" error | High | `[x]` Resolved | Removed complex `pb` API hash parameters and swapped with a clean, cached query location parameter (`q=87003+Professional+Way...`). |
 | **Mobile UX** | Mobile nav menu drawer links going off-screen and unscrollable on small screens | Medium | `[x]` Resolved | Raised `.mobile-nav` z-index to `150` and added `max-height: calc(100vh - 100%)` with `overflow-y: auto`. |
 | **Accessibility** | Banner titles at the top of pages are dark on dark and hard to read | High | `[x]` Resolved | Redesigned heroes to use soft light gradient themes with high-contrast, accessible dark titles. |
