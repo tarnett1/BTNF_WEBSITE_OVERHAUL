@@ -1313,3 +1313,12 @@ a:hover {
   border-right: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
+.sticky-note-footnote {
+  display: block;
+  font-size: 0.725rem !important;
+  color: #a63b00 !important; /* Noticeable deep warm orange/red warning style */
+  margin-top: 0.65rem !important;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
