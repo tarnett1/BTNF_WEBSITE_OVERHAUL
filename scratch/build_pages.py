@@ -534,22 +534,31 @@ def build_team():
         edu_label = member["education"]
         bio = member["bio"]
         
-        # Split bio for collapsible toggle if it exceeds 220 characters
-        if len(bio) > 220:
-            # Try to find a clean split point near 180 characters
-            split_point = 180
-            period_idx = bio.find('.', 160, 240)
-            if period_idx != -1:
-                split_point = period_idx + 1
+        # Split bio for collapsible toggle if it exceeds 120 characters
+        if len(bio) > 120:
+            # Try to find the first sentence ending (period, question mark, exclamation mark followed by space or newline)
+            sentence_end = -1
+            match = re.search(r'[.!?](?:\s|\n|$)', bio)
+            if match:
+                sentence_end = match.start() + 1
+            
+            # If the first sentence is a reasonable length (between 40 and 150 chars), split there.
+            if 40 <= sentence_end <= 150:
+                split_point = sentence_end
             else:
-                space_idx = bio.find(' ', 180, 220)
+                # Fallback to space near 90-110 characters
+                space_idx = bio.find(' ', 90, 120)
                 if space_idx != -1:
                     split_point = space_idx
-            
+                else:
+                    split_point = 100
+                    
             preview_text = bio[:split_point].strip()
+            suffix = "..." if not preview_text[-1] in ".!?" else ""
+            
             bio_html = f"""
             <div class="team-bio-container">
-              <p class="team-bio bio-preview-text">{preview_text}...</p>
+              <p class="team-bio bio-preview-text">{preview_text}{suffix}</p>
               <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">{bio}</p>
               <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
             </div>
@@ -1015,50 +1024,16 @@ def update_index_links():
     # Insert proposal widget
     content = content.replace("<body>", "<body>\n" + PROPOSAL_WIDGET_HTML)
         
-    # Replace navbar links
-    # Desktop links
-    content = content.replace(
-        '<a href="#services" class="nav-link">Our Services</a>',
-        '<a href="programs.html" class="nav-link">Our Programs</a>'
-    )
-    content = content.replace(
-        '<a href="#portals" class="nav-link">Client Portals</a>',
-        '<a href="contact.html" class="nav-link">Client Portals</a>'
-    )
-    content = content.replace(
-        '<a href="#badges" class="nav-link">Scholarships &amp; Insurance</a>',
-        '<a href="rates-insurance.html" class="nav-link">Scholarships &amp; Insurance</a>'
-    )
-    content = content.replace(
-        '<a href="#team" class="nav-link">Meet the Team</a>',
-        '<a href="team.html" class="nav-link">Meet the Team</a>'
-    )
-    content = content.replace(
-        '<a href="#contact" class="nav-link">Contact Us</a>',
-        '<a href="contact.html" class="nav-link">Contact Us</a>'
-    )
-    
-    # Mobile links
-    content = content.replace(
-        '<a href="#services" class="mobile-nav-link">Our Services</a>',
-        '<a href="programs.html" class="mobile-nav-link">Our Programs</a>'
-    )
-    content = content.replace(
-        '<a href="#portals" class="mobile-nav-link">Client Portals</a>',
-        '<a href="contact.html" class="mobile-nav-link">Client Portals</a>'
-    )
-    content = content.replace(
-        '<a href="#badges" class="mobile-nav-link">Scholarships &amp; Insurance</a>',
-        '<a href="rates-insurance.html" class="mobile-nav-link">Scholarships &amp; Insurance</a>'
-    )
-    content = content.replace(
-        '<a href="#team" class="mobile-nav-link">Meet the Team</a>',
-        '<a href="team.html" class="mobile-nav-link">Meet the Team</a>'
-    )
-    content = content.replace(
-        '<a href="#contact" class="mobile-nav-link">Contact Us</a>',
-        '<a href="contact.html" class="mobile-nav-link">Contact Us</a>'
-    )
+    # Extract the main header portion from NAV_HTML and replace it on the homepage
+    header_start_idx = NAV_HTML.find("<!-- Main Navigation Header -->")
+    if header_start_idx != -1:
+        header_html = NAV_HTML[header_start_idx:]
+        content = re.sub(
+            r'<!-- Main Navigation Header -->.*?<!-- Main Content Wrapper -->',
+            header_html + '\n\n  <!-- Main Content Wrapper -->',
+            content,
+            flags=re.DOTALL
+        )
     
     # Footer links
     content = content.replace(
