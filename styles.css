@@ -1308,13 +1308,13 @@ a:hover {
 /* Sticky Note callout style */
 .sticky-note {
   position: relative;
-  background: #fef8d3; /* Pale post-it yellow */
+  background: linear-gradient(135deg, #fffdf0 0%, #fef8d3 100%); /* 3D post-it yellow gradient */
   color: #333333;
   padding: 1.25rem;
-  border-radius: 4px;
-  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 2px; /* Sharper post-it corners */
+  box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.04);
   margin-top: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 4px solid #f9d854; /* Post-it accent color */
 }
 
@@ -1348,18 +1348,32 @@ a:hover {
   margin: 0 !important;
 }
 
-/* Semi-transparent tape at the top */
+/* Realistic semi-transparent torn tape at the top */
 .sticky-note-tape {
   position: absolute;
-  top: -10px;
+  top: -12px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  border-left: 1px dashed rgba(0, 0, 0, 0.1);
-  border-right: 1px dashed rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%) rotate(-2.5deg); /* Angled tape placement */
+  width: 80px;
+  height: 22px;
+  background-color: rgba(253, 251, 235, 0.65); /* Frosted tan tape tint */
+  backdrop-filter: blur(1.5px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  z-index: 10;
+  
+  /* Jagged torn edges using clip-path */
+  clip-path: polygon(
+    0% 0%, 
+    4px 25%, 
+    0% 50%, 
+    4px 75%, 
+    0% 100%, 
+    100% 100%, 
+    calc(100% - 4px) 75%, 
+    100% 50%, 
+    calc(100% - 4px) 25%, 
+    100% 0%
+  );
 }
 
 .sticky-note-footnote {
