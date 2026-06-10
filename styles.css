@@ -1276,7 +1276,8 @@ a:hover {
     font-size: 0.825rem !important;
   }
 }
-  
+
+@media (min-width: 992px) {
   .about-container {
     grid-template-columns: 1.2fr 0.8fr;
   }
