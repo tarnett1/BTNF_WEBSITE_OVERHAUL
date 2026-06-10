@@ -1308,14 +1308,14 @@ a:hover {
 /* Sticky Note callout style */
 .sticky-note {
   position: relative;
-  background: linear-gradient(135deg, #fffdf0 0%, #fef8d3 100%); /* 3D post-it yellow gradient */
-  color: #333333;
+  background: linear-gradient(135deg, #fff9a6 0%, #fef062 100%); /* Classic vibrant canary yellow */
+  color: #222222; /* High contrast text for readability */
   padding: 1.25rem;
   border-radius: 2px; /* Sharper post-it corners */
   box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.04);
   margin-top: 1.5rem;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 4px solid #f9d854; /* Post-it accent color */
+  border-left: none; /* Removed solid border for clean cut-paper look */
 }
 
 /* Let's give them a slight organic rotation */
