@@ -96,6 +96,53 @@ NAV_HTML = PROPOSAL_WIDGET_HTML + """
 """
 
 FOOTER_HTML = """
+  <!-- Floating Socials Charm Bar -->
+  <div class="socials-charm" aria-label="Social Media Links">
+    <a href="https://www.facebook.com/BreakthroughsofNorthFlorida" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="Facebook">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0 -5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+      <span class="charm-tooltip">Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/breakthroughsofjacksonville/" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="Instagram">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      <span class="charm-tooltip">Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/company/breakthroughs-of-north-florida/" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="LinkedIn">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+      <span class="charm-tooltip">LinkedIn</span>
+    </a>
+    <a href="tel:904-261-2600" class="charm-link" aria-label="Call Us">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span class="charm-tooltip">Call Us</span>
+    </a>
+    <a href="contact.html" class="charm-link" aria-label="Contact Us">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <span class="charm-tooltip">Email Us</span>
+    </a>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Scroll to top of page">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
   <!-- Global Footer -->
   <footer class="main-footer">
     <div class="container footer-container">
@@ -104,6 +151,18 @@ FOOTER_HTML = """
         <p class="footer-desc">
           Professional, integrated therapeutic and educational care helping North Florida families thrive.
         </p>
+        <!-- Inline Socials for Mobile/Tablet users -->
+        <div class="footer-socials" style="display: flex; gap: 16px; margin-top: 1.25rem;">
+          <a href="https://www.facebook.com/BreakthroughsofNorthFlorida" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-light-sub); transition: color 0.2s;" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0 -5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/breakthroughsofjacksonville/" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-light-sub); transition: color 0.2s;" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/breakthroughs-of-north-florida/" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-light-sub); transition: color 0.2s;" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
       </div>
 
       <div class="footer-links-group">
@@ -132,7 +191,7 @@ FOOTER_HTML = """
     <div class="footer-bottom">
       <div class="container footer-bottom-container">
         <div class="footer-legal-blocks">
-          <p class="copyright-text">&copy; 2026 Breakthroughs of North Florida. All rights reserved.</p>
+          <p class="copyright-text">&copy; <span id="current-year">2026</span> Breakthroughs of North Florida. All rights reserved.</p>
           <p class="license-info">Clinical mental health counseling services are provided by licensed clinicians in the State of Florida. Tutoring represents specialized academic intervention and does not constitute psychological therapy.</p>
           <p class="license-info"><strong>Affiliation Disclaimer:</strong> Breakthroughs of North Florida is not affiliated with, certified, endorsed, licensed, monitored or sponsored by Lindamood-Bell Learning Processes.</p>
         </div>
@@ -163,6 +222,24 @@ FOOTER_HTML = """
           mobileNav.classList.remove('is-active');
         });
       });
+
+      // Scroll to Top Button visibility toggle
+      const scrollTopBtn = document.getElementById('scroll-top-btn');
+      if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+          } else {
+            scrollTopBtn.classList.remove('visible');
+          }
+        });
+      }
+
+      // Automatically update footer copyright year to current year
+      const yearSpan = document.getElementById('current-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
     });
 
     // Toggle floating proposal widget
@@ -176,6 +253,14 @@ FOOTER_HTML = """
           toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
         }
       }
+    }
+
+    // Scroll to Top action
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
 
     // Restore proposal widget state
@@ -1068,14 +1153,6 @@ def update_index_links():
             flags=re.DOTALL
         )
     
-    # Footer links
-    content = re.sub(
-        r'<h5>Quick Links</h5>\s*<ul>.*?</ul>',
-        '<h5>Quick Links</h5>\n          <ul>\n            <li><a href="index.html">Home</a></li>\n            <li><a href="programs.html">Our Programs</a></li>\n            <li><a href="team.html">Meet the Team</a></li>\n            <li><a href="rates-insurance.html">Scholarships &amp; Insurance</a></li>\n            <li><a href="contact.html#portals">Client Portals</a></li>\n            <li><a href="contact.html">Contact Us</a></li>\n          </ul>',
-        content,
-        flags=re.DOTALL
-    )
-    
     # CTA button hrefs
     content = content.replace('href="#contact" class="btn btn-primary"', 'href="contact.html" class="btn btn-primary"')
     content = content.replace('href="#contact" class="btn btn-primary btn-block"', 'href="contact.html" class="btn btn-primary btn-block"')
@@ -1092,86 +1169,10 @@ def update_index_links():
     # Team section block in index.html footer CTA link
     content = content.replace('href="#contact" class="btn btn-secondary btn-block"', 'href="contact.html" class="btn btn-secondary btn-block"')
     
-    # Also clean and insert script in index.html script block if it isn't already there
-    index_old_script = """  <!-- Javascript for mobile menu toggling and smooth scrolling -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-      // Toggle mobile menu
-      menuToggle.addEventListener('click', () => {
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !expanded);
-        menuToggle.classList.toggle('is-active');
-        mobileNav.classList.toggle('is-active');
-      });
-
-      // Close mobile menu on link click
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.classList.remove('is-active');
-          mobileNav.classList.remove('is-active');
-        });
-      });
-    });
-  </script>"""
-
-    index_new_script = """  <!-- Javascript for mobile menu toggling and smooth scrolling -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-      // Toggle mobile menu
-      menuToggle.addEventListener('click', () => {
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !expanded);
-        menuToggle.classList.toggle('is-active');
-        mobileNav.classList.toggle('is-active');
-      });
-
-      // Close mobile menu on link click
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.classList.remove('is-active');
-          mobileNav.classList.remove('is-active');
-        });
-      });
-    });
-
-    // Toggle floating proposal widget
-    function toggleProposalWidget() {
-      const widget = document.getElementById('proposal-widget');
-      if (widget) {
-        const collapsed = widget.classList.toggle('collapsed');
-        localStorage.setItem('proposal_widget_collapsed', collapsed ? 'true' : 'false');
-        const toggleBtn = widget.querySelector('.proposal-widget-toggle');
-        if (toggleBtn) {
-          toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-        }
-      }
-    }
-
-    // Restore proposal widget state
-    document.addEventListener('DOMContentLoaded', () => {
-      const isCollapsed = localStorage.getItem('proposal_widget_collapsed');
-      const widget = document.getElementById('proposal-widget');
-      if (widget && isCollapsed === 'false') {
-        widget.classList.remove('collapsed');
-        const toggleBtn = widget.querySelector('.proposal-widget-toggle');
-        if (toggleBtn) {
-          toggleBtn.setAttribute('aria-expanded', 'true');
-        }
-      }
-    });
-  </script>"""
-    
-    content = content.replace(index_old_script, index_new_script)
+    # Replace global footer and scripts with FOOTER_HTML
+    footer_idx = content.find("<!-- Global Footer -->")
+    if footer_idx != -1:
+        content = content[:footer_idx] + FOOTER_HTML + "\n</body>\n</html>"
 
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(content)
