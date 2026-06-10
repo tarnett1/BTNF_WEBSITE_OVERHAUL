@@ -85,6 +85,49 @@
       font-weight: 500;
     }
     
+    /* Section-based team layout */
+    .section-title {
+      font-size: 2.25rem;
+      color: var(--color-primary-navy);
+      margin-top: 4.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--color-border-subtle);
+      padding-bottom: 0.75rem;
+      font-weight: 700;
+      position: relative;
+      letter-spacing: -0.02em;
+    }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-academic-primary);
+      border-radius: 2px;
+    }
+    .section-title.counseling-title::after {
+      background-color: var(--color-counseling-primary);
+    }
+    .section-title.psychiatric-title::after {
+      background-color: #4338ca;
+    }
+    .section-title.coaching-title::after {
+      background-color: #d97706;
+    }
+    .leadership-card {
+      border-top: 4px solid var(--color-academic-primary) !important;
+      background: linear-gradient(180deg, var(--color-bg-surface) 0%, var(--color-bg-alt) 100%) !important;
+    }
+    .psychiatric-card {
+      border-top: 4px solid var(--color-counseling-primary) !important;
+      background: linear-gradient(180deg, var(--color-bg-surface) 0%, var(--color-counseling-bg-light) 100%) !important;
+    }
+    .team-grid-extended {
+      margin-bottom: 2rem;
+    }
+    
     /* Programs layout */
     .programs-detailed {
       display: flex;
@@ -256,19 +299,115 @@
 
     <section class="subpage-content">
       <div class="container">
-        <!-- Interactive filter buttons -->
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All Staff</button>
-          <button class="filter-btn" data-filter="counseling">Counseling &amp; Therapy</button>
-          <button class="filter-btn" data-filter="education">Educational &amp; Tutoring</button>
-          <button class="filter-btn" data-filter="psychiatric">Psychiatric Services</button>
-          <button class="filter-btn" data-filter="coaching">Life Coaching</button>
+        <!-- Interactive filter buttons (Jump Links) -->
+        <div class="filter-container" style="position: sticky; top: 80px; z-index: 99; background: var(--color-bg-surface); padding: 1rem 0; border-bottom: 1px solid var(--color-border-subtle);">
+          <button class="filter-btn active" data-target="leadership">Leadership &amp; Operations</button>
+          <button class="filter-btn" data-target="counseling">Counseling &amp; Therapy</button>
+          <button class="filter-btn" data-target="psychiatric">Psychiatric Services</button>
+          <button class="filter-btn" data-target="education">Educational &amp; Tutoring</button>
+          <button class="filter-btn" data-target="coaching">Life Coaching</button>
         </div>
 
-        <div class="team-grid-extended">
+        <!-- Section 1: Leadership & Operations -->
+        <div id="leadership" class="team-section-block">
+          <h2 class="section-title">Clinical Leadership &amp; Operations</h2>
+          <div class="team-grid-extended">
+    
+          <!-- Staff Card: Devin McClure -->
+          <div class="team-card leadership-card" data-category="counseling">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/devin_mcclure.jpg" alt="Devin McClure">
+              <div class="team-meta">
+                <h4>Devin McClure</h4>
+                <span class="team-role">Registered Mental Health Counseling Intern</span>
+                <span class="team-badge badge-counseling" >Counseling Team</span>
+              </div>
+            </div>
+            
+            <p class="team-bio-full">Director of Operations
+
+Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master’s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.
+
+Devin earned his bachelor’s degree in psychology and is credentialed as a teacher in the state of Florida in the areas of secondary Social Sciences and English. Since moving to Florida, he has worked within the Nassau County school system as both a teacher and athletics coach, providing him with meaningful experience supporting children, adolescents, and families within school and community settings.
+
+Prior to his career in counseling and education, Devin served in law enforcement in multiple roles, including patrol officer, detective, S.W.A.T. operator, and District Attorney investigator. Through this work, he developed a strong understanding of the cumulative stress, trauma exposure, and relational strain often experienced by first responders and public safety professionals. As a result, he is particularly passionate about supporting first responders, veterans, and their families, as well as individuals navigating high-stress occupations.
+
+In his clinical work, Devin provides counseling services to adolescents, adults, couples, and families. He has experience and special interest in working with clients presenting with trauma and stress-related concerns, anxiety, depression, grief and loss, relationship challenges, occupational stress, and life transitions. When working with couples, Devin integrates Gottman Method–informed interventions to support healthy communication, conflict management, and relationship strengthening. His EMDR-informed approach supports clients processing distressing experiences in a structured, evidence-based manner.
+
+While serving as a police officer, Devin was assigned to a joint task force composed of officers from multiple agencies and clinicians from the Los Angeles County Department of Mental Health. These co-response teams functioned as mobile psychiatric and psychological crisis intervention units, providing on-scene mental health evaluations, crisis intervention, and coordination of wraparound services for individuals experiencing acute mental health needs in the community.
+
+Outside of his professional work, Devin is an enthusiastic public speaker, educator, and small-group facilitator within his local church and community. He enjoys staying active and spending time with his family, including camping, beachcombing, traveling, and attending his daughter’s dance and cheer recitals.
+
+Specialties
+
+EMDR Trained
+
+Certified in crisis intervention tactics
+
+Law Enforcement Trauma Response Team Member
+
+Trained in Peer Counseling
+
+Association of Threat Assessment Professionals, Certified Threat Manager (CTM)
+
+SYMBIS Facilitator</p>
+          </div>
+        
+          <!-- Staff Card: Marty Edwards -->
+          <div class="team-card leadership-card" data-category="counseling">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/marty.jpg" alt="Marty Edwards">
+              <div class="team-meta">
+                <h4>Marty Edwards</h4>
+                <span class="team-role">Licensed Marriage & Family Therapist</span>
+                <span class="team-badge badge-counseling" >Counseling Team</span>
+              </div>
+            </div>
+            <p class="education-text">Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.</p>
+            <p class="team-bio-full">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.
+
+Marty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well. She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples. She is excited to call Nassau County home, where she will continue to serve for many years to come.
+
+Specialties:
+- Anxiety
+- Depression
+- Grief & Trauma
+- Weight Loss
+- Mood Disorders
+- Post Traumatic Stress Disorder (PTSD)
+
+Additional Training in:
+- DBT (Dialectical Behavior Therapy)
+- CBT (Cognitive Behavior Therapy)
+- Hypno-Counting
+- Enneagram
+- Love & Logic</p>
+          </div>
+        
+          <!-- Staff Card: Lizz Arnett -->
+          <div class="team-card leadership-card" data-category="education">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/lizz.jpg" alt="Lizz Arnett">
+              <div class="team-meta">
+                <h4>Lizz Arnett</h4>
+                <span class="team-role">Educational Services Specialist</span>
+                <span class="team-badge badge-academic" >Education Team</span>
+              </div>
+            </div>
+            
+            <p class="team-bio-full">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!</p>
+          </div>
+        
+          </div>
+        </div>
+
+        <!-- Section 2: Clinical Counseling Team -->
+        <div id="counseling" class="team-section-block">
+          <h2 class="section-title counseling-title">Clinical Counseling &amp; Therapy</h2>
+          <div class="team-grid-extended">
     
           <!-- Staff Card: Amanda King -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/amanda_king.jpg" alt="Amanda King">
               <div class="team-meta">
@@ -302,7 +441,7 @@ Zones of Regulations</p>
           </div>
         
           <!-- Staff Card: Aubrey Griffith -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/aubrey_griffith.jpg" alt="Aubrey Griffith">
               <div class="team-meta">
@@ -324,7 +463,7 @@ Adults</p>
           </div>
         
           <!-- Staff Card: Bethany Paige -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/bethany_paige.jpg" alt="Bethany Paige">
               <div class="team-meta">
@@ -350,7 +489,7 @@ Adults</p>
           </div>
         
           <!-- Staff Card: Bridget Hanlon -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/bridget_hanlon.jpg" alt="Bridget Hanlon">
               <div class="team-meta">
@@ -382,7 +521,7 @@ As a military spouse, Bridget is a transplant to the area and is excited to serv
           </div>
         
           <!-- Staff Card: Caitlin Rezac -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/caitlin_rezac.jpg" alt="Caitlin Rezac">
               <div class="team-meta">
@@ -402,7 +541,7 @@ Caitlin began her career providing at-home counseling services to seniors. Follo
           </div>
         
           <!-- Staff Card: Devin McClure -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/devin_mcclure.jpg" alt="Devin McClure">
               <div class="team-meta">
@@ -442,7 +581,7 @@ SYMBIS Facilitator</p>
           </div>
         
           <!-- Staff Card: Hailey Dittenbir -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/hailey_dittenbir.jpg" alt="Hailey Dittenbir">
               <div class="team-meta">
@@ -466,7 +605,7 @@ Adolescents</p>
           </div>
         
           <!-- Staff Card: Jade Hebert -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/jade_hebert.jpg" alt="Jade Hebert">
               <div class="team-meta">
@@ -484,7 +623,7 @@ Beyond her clinical work, Jade is an enthusiastic football fan and a dedicated s
           </div>
         
           <!-- Staff Card: Jason Kugel -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/jason_kugel.jpg" alt="Jason Kugel">
               <div class="team-meta">
@@ -514,7 +653,7 @@ Adolescents</p>
           </div>
         
           <!-- Staff Card: Jen Flores -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/jen_flores.jpg" alt="Jen Flores">
               <div class="team-meta">
@@ -532,7 +671,7 @@ As the spouse of an Army veteran and mother of two, Jen values compassion, resil
           </div>
         
           <!-- Staff Card: Jenny Savage -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/jenny_savage.jpg" alt="Jenny Savage">
               <div class="team-meta">
@@ -556,7 +695,7 @@ Jenny currently resides in northeast Florida, surrounded by her family, with who
           </div>
         
           <!-- Staff Card: Katelynn Schmidt -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/katelynn_schmidt.jpg" alt="Katelynn Schmidt">
               <div class="team-meta">
@@ -584,19 +723,17 @@ Click Here for Intake Forms</p>
           </div>
         
           <!-- Staff Card: Kelly Goss -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/kelly_goss.jpg" alt="Kelly Goss">
               <div class="team-meta">
                 <h4>Kelly Goss</h4>
-                <span class="team-role">Kelly Ross</span>
+                <span class="team-role">Registered Mental Health Counselor Intern</span>
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Registered Mental Health Counseling Intern
-
-Originally from Atlanta, Kelly moved to Nassau county in 2016 and has proudly served the local community ever since. She earned her Master's degree in clinical mental health counseling from Liberty University and is passionate about walking alongside individuals and families as they navigate life's challenges.
+            <p class="team-bio-full">Originally from Atlanta, Kelly moved to Nassau county in 2016 and has proudly served the local community ever since. She earned her Master's degree in clinical mental health counseling from Liberty University and is passionate about walking alongside individuals and families as they navigate life's challenges.
 
 Kelly has experience working with children, teens, adults, and seniors. She utilizes evidence-based techniques drawn from cognitive behavioral therapy (CBT) to help clients identify unhelpful patterns, build practical coping skills, and create meaningful change.
 
@@ -605,70 +742,8 @@ Known for her gentle and warm demeanor, Kelly creates a safe and supportive envi
 Outside of the counseling office, Kelly enjoys spending time at the beach with her husband and children embracing the coastal lifestyle that Nassau county has to offer.</p>
           </div>
         
-          <!-- Staff Card: Marty Edwards -->
-          <div class="team-card" data-category="counseling">
-            <div class="team-card-header">
-              <img class="team-avatar" src="images/marty.jpg" alt="Marty Edwards">
-              <div class="team-meta">
-                <h4>Marty Edwards</h4>
-                <span class="team-role">Licensed M</span>
-                <span class="team-badge badge-counseling" >Counseling Team</span>
-              </div>
-            </div>
-            <p class="education-text">Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.</p>
-            <p class="team-bio-full">arriage & Family
-
-Therapist
-
-QUALIFIED SUPERVISOR FOR STATE OF FLORIDA
-
-As a licensed marriage & family therapist (LMFT) she provides professional counseling services to:
-
-Marriage/Couples
-
-Families
-
-Children
-
-Adolescents
-
-Marty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well.
-
-She is excited to call Nassau County home, where she will continue to serve for many years to come.
-
-She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples.
-
-Qualified Supervisor State of Florida
-
-Specialties
-
-Anxiety
-
-Depression
-
-Grief & Trauma
-
-Weight Loss
-
-Mood Disorders
-
-Post Traumatic Stress Disorder (PTSD)
-
-Additional Training in:
-
-DBT (Dialectical Behavior Therapy)
-
-CBT (Cognitive Behavior Therapy)
-
-Hypno-Counting
-
-Enneagram
-
-Love & Logic</p>
-          </div>
-        
           <!-- Staff Card: Monica Hemming -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/monica_hemming.jpg" alt="Monica Hemming">
               <div class="team-meta">
@@ -720,7 +795,7 @@ Ambassador at ZOOMA Women’s Race Series</p>
           </div>
         
           <!-- Staff Card: Nicki Peterson -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/nicki_peterson.jpg" alt="Nicki Peterson">
               <div class="team-meta">
@@ -754,7 +829,7 @@ Play-based and creative modalities</p>
           </div>
         
           <!-- Staff Card: Peter Agdamag -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/peter_agdamag.jpg" alt="Peter Agdamag">
               <div class="team-meta">
@@ -802,7 +877,7 @@ Certification in Critical Incident Stress Management (CCISM)</p>
           </div>
         
           <!-- Staff Card: Roseline Shofolu -->
-          <div class="team-card" data-category="counseling">
+          <div class="team-card " data-category="counseling">
             <div class="team-card-header">
               <img class="team-avatar" src="images/roseline_shofolu.jpg" alt="Roseline Shofolu">
               <div class="team-meta">
@@ -871,13 +946,47 @@ Substance Abuse & Recovery
 Integrating Faith & Spirituality in Healing</p>
           </div>
         
+          </div>
+        </div>
+
+        <!-- Section 3: Psychiatric Services -->
+        <div id="psychiatric" class="team-section-block">
+          <h2 class="section-title psychiatric-title">Psychiatric Services</h2>
+          <div class="team-grid-extended">
+    
+          <!-- Staff Card: Casey Goss -->
+          <div class="team-card psychiatric-card" data-category="psychiatric">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/casey.jpg" alt="Casey Goss">
+              <div class="team-meta">
+                <h4>Casey Goss</h4>
+                <span class="team-role">Psychiatric Mental Health Nurse Practitioner</span>
+                <span class="team-badge " style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;">Psychiatric Services</span>
+              </div>
+            </div>
+            
+            <p class="team-bio-full">Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated to Nassau County in 2016 with his wife and their two children, where he has since become deeply rooted in the local community.
+
+Casey takes a thoughtful, conservative approach to medication management, prioritizing therapy and viewing medication as one part of a broader, often short-term, treatment plan. He is passionate about partnering with patients to support lasting mental wellness and believes in treating the whole person within the context of their family and environment.
+
+With both professional expertise and personal experience raising neurodivergent children, Casey brings a unique level of empathy, insight, and advocacy to his work. He is committed to helping individuals and families feel supported, understood, and empowered as they move toward not just stability, but true thriving.</p>
+          </div>
+        
+          </div>
+        </div>
+
+        <!-- Section 4: Specialized Educational & Tutoring Team -->
+        <div id="education" class="team-section-block">
+          <h2 class="section-title">Specialized Educational &amp; Tutoring</h2>
+          <div class="team-grid-extended">
+    
           <!-- Staff Card: Alex Beveridge -->
-          <div class="team-card" data-category="education">
+          <div class="team-card " data-category="education">
             <div class="team-card-header">
               <img class="team-avatar" src="images/alex_beveridge.jpg" alt="Alex Beveridge">
               <div class="team-meta">
                 <h4>Alex Beveridge</h4>
-                <span class="team-role">Tutoring</span>
+                <span class="team-role">Specialized Academic Tutor</span>
                 <span class="team-badge badge-academic" >Education Team</span>
               </div>
             </div>
@@ -886,7 +995,7 @@ Integrating Faith & Spirituality in Healing</p>
           </div>
         
           <!-- Staff Card: Joanna McIntosh -->
-          <div class="team-card" data-category="education">
+          <div class="team-card " data-category="education">
             <div class="team-card-header">
               <img class="team-avatar" src="images/joanna_mcintosh.jpg" alt="Joanna McIntosh">
               <div class="team-meta">
@@ -902,7 +1011,7 @@ Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I 
           </div>
         
           <!-- Staff Card: Lizz Arnett -->
-          <div class="team-card" data-category="education">
+          <div class="team-card " data-category="education">
             <div class="team-card-header">
               <img class="team-avatar" src="images/lizz.jpg" alt="Lizz Arnett">
               <div class="team-meta">
@@ -915,14 +1024,22 @@ Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I 
             <p class="team-bio-full">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!</p>
           </div>
         
+          </div>
+        </div>
+
+        <!-- Section 5: Life Coaching -->
+        <div id="coaching" class="team-section-block">
+          <h2 class="section-title coaching-title">Life Coaching</h2>
+          <div class="team-grid-extended">
+    
           <!-- Staff Card: Madison Moore -->
-          <div class="team-card" data-category="coaching">
+          <div class="team-card " data-category="coaching">
             <div class="team-card-header">
               <img class="team-avatar" src="images/madison_moore.jpg" alt="Madison Moore">
               <div class="team-meta">
                 <h4>Madison Moore</h4>
-                <span class="team-role">Specialist</span>
-                <span class="team-badge" style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;">Life Coaching</span>
+                <span class="team-role">Certified Life Coach</span>
+                <span class="team-badge badge-counseling" style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;">Life Coaching</span>
               </div>
             </div>
             
@@ -937,25 +1054,9 @@ As a coach, Madison believes in taking a holistic approach to coaching. She unde
 Whether you are a recent graduate looking to transition into the workforce or an individual seeking to achieve your goals and find your purpose in life, Madison is here to help. With her guidance and support, you can unlock your full potential, overcome obstacles, and create the life you desire. Book a coaching session with Madison today and start living your best life!</p>
           </div>
         
-          <!-- Staff Card: Casey Goss -->
-          <div class="team-card" data-category="psychiatric">
-            <div class="team-card-header">
-              <img class="team-avatar" src="images/casey.jpg" alt="Casey Goss">
-              <div class="team-meta">
-                <h4>Casey Goss</h4>
-                <span class="team-role">Psychiatric Mental Health Nurse Practitioner</span>
-                <span class="team-badge " style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;">Psychiatric Team</span>
-              </div>
-            </div>
-            
-            <p class="team-bio-full">Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated to Nassau County in 2016 with his wife and their two children, where he has since become deeply rooted in the local community.
-
-Casey takes a thoughtful, conservative approach to medication management, prioritizing therapy and viewing medication as one part of a broader, often short-term, treatment plan. He is passionate about partnering with patients to support lasting mental wellness and believes in treating the whole person within the context of their family and environment.
-
-With both professional expertise and personal experience raising neurodivergent children, Casey brings a unique level of empathy, insight, and advocacy to his work. He is committed to helping individuals and families feel supported, understood, and empowered as they move toward not just stability, but true thriving.</p>
           </div>
-        
         </div>
+
       </div>
     </section>
   </main>
@@ -963,28 +1064,49 @@ With both professional expertise and personal experience raising neurodivergent 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.team-card');
       
       filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Update active button
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          const filterValue = btn.getAttribute('data-filter');
-          
-          cards.forEach(card => {
-            if (filterValue === 'all') {
-              card.style.display = 'flex';
-            } else {
-              const cardCat = card.getAttribute('data-category');
-              if (cardCat === filterValue) {
-                card.style.display = 'flex';
-              } else {
-                card.style.display = 'none';
-              }
-            }
-          });
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+            const filterContainerHeight = document.querySelector('.filter-container').offsetHeight;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - filterContainerHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update active button state
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        });
+      });
+      
+      // Update active button on scroll
+      window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.team-section-block');
+        const headerHeight = document.querySelector('.main-header').offsetHeight;
+        const filterContainerHeight = document.querySelector('.filter-container').offsetHeight;
+        let currentActive = 'leadership';
+        
+        sections.forEach(sec => {
+          const top = sec.offsetTop - headerHeight - filterContainerHeight - 60;
+          if (window.pageYOffset >= top) {
+            currentActive = sec.getAttribute('id');
+          }
+        });
+        
+        filterBtns.forEach(btn => {
+          if (btn.getAttribute('data-target') === currentActive) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
         });
       });
     });

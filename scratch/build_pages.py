@@ -222,6 +222,49 @@ HEAD_TEMPL = """<!DOCTYPE html>
       font-weight: 500;
     }}
     
+    /* Section-based team layout */
+    .section-title {{
+      font-size: 2.25rem;
+      color: var(--color-primary-navy);
+      margin-top: 4.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--color-border-subtle);
+      padding-bottom: 0.75rem;
+      font-weight: 700;
+      position: relative;
+      letter-spacing: -0.02em;
+    }}
+    .section-title::after {{
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-academic-primary);
+      border-radius: 2px;
+    }}
+    .section-title.counseling-title::after {{
+      background-color: var(--color-counseling-primary);
+    }}
+    .section-title.psychiatric-title::after {{
+      background-color: #4338ca;
+    }}
+    .section-title.coaching-title::after {{
+      background-color: #d97706;
+    }}
+    .leadership-card {{
+      border-top: 4px solid var(--color-academic-primary) !important;
+      background: linear-gradient(180deg, var(--color-bg-surface) 0%, var(--color-bg-alt) 100%) !important;
+    }}
+    .psychiatric-card {{
+      border-top: 4px solid var(--color-counseling-primary) !important;
+      background: linear-gradient(180deg, var(--color-bg-surface) 0%, var(--color-counseling-bg-light) 100%) !important;
+    }}
+    .team-grid-extended {{
+      margin-bottom: 2rem;
+    }}
+    
     /* Programs layout */
     .programs-detailed {{
       display: flex;
@@ -345,30 +388,19 @@ def build_team():
     )
     team_html += NAV_HTML
     
-    team_html += """
-  <main id="main-content">
-    <section class="subpage-hero">
-      <div class="container">
-        <h1>Meet Our Dedicated Specialists</h1>
-        <p>Our multidisciplinary team of licensed therapists, clinical supervisors, and certified educational specialists coordinates support for your family's growth and success.</p>
-      </div>
-    </section>
-
-    <section class="subpage-content">
-      <div class="container">
-        <!-- Interactive filter buttons -->
-        <div class="filter-container">
-          <button class="filter-btn active" data-filter="all">All Staff</button>
-          <button class="filter-btn" data-filter="counseling">Counseling &amp; Therapy</button>
-          <button class="filter-btn" data-filter="education">Educational &amp; Tutoring</button>
-          <button class="filter-btn" data-filter="psychiatric">Psychiatric Services</button>
-          <button class="filter-btn" data-filter="coaching">Life Coaching</button>
-        </div>
-
-        <div class="team-grid-extended">
-    """
+    # Separate lists
+    leadership_keys = ["marty-edwards", "lizz-arnett", "devin-mcclure"]
+    leadership_team = [m for m in staff_list if m["key"] in leadership_keys]
     
-    for member in staff_list:
+    psychiatric_team = [m for m in staff_list if m["key"] == "casey-goss"]
+    coaching_team = [m for m in staff_list if m["key"] == "madison-moore"]
+    
+    # Filter counseling and education keeping leadership visible in their respective functional grids as well
+    counseling_team = [m for m in staff_list if m["category"] == "counseling" and m["key"] != "marty-edwards"]
+    education_team = [m for m in staff_list if m["category"] == "education"]
+    
+    # Helper to generate a single staff card
+    def make_card(member, extra_classes=""):
         cat = member["category"]
         badge_class = "badge-counseling"
         if cat == "education":
@@ -384,24 +416,115 @@ def build_team():
         edu_label = member["education"]
         bio = member["bio"]
         
-        team_html += f"""
+        # Format team badge text
+        badge_text = cat.title() + " Team"
+        if cat == "coaching":
+            badge_text = "Life Coaching"
+            badge_style = 'style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;"'
+        elif cat == "psychiatric":
+            badge_text = "Psychiatric Services"
+            
+        return f"""
           <!-- Staff Card: {member["name"]} -->
-          <div class="team-card" data-category="{cat}">
+          <div class="team-card {extra_classes}" data-category="{cat}">
             <div class="team-card-header">
               <img class="team-avatar" src="{member["image"]}" alt="{member["name"]}">
               <div class="team-meta">
                 <h4>{member["name"]}</h4>
                 <span class="team-role">{role_label}</span>
-                {f'<span class="team-badge {badge_class}" {badge_style}>{cat.title()} Team</span>' if cat != "coaching" else '<span class="team-badge" style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;">Life Coaching</span>'}
+                <span class="team-badge {badge_class}" {badge_style}>{badge_text}</span>
               </div>
             </div>
             {f'<p class="education-text">{edu_label}</p>' if edu_label else ''}
             <p class="team-bio-full">{bio}</p>
           </div>
         """
+
+    team_html += """
+  <main id="main-content">
+    <section class="subpage-hero">
+      <div class="container">
+        <h1>Meet Our Dedicated Specialists</h1>
+        <p>Our multidisciplinary team of licensed therapists, clinical supervisors, and certified educational specialists coordinates support for your family's growth and success.</p>
+      </div>
+    </section>
+
+    <section class="subpage-content">
+      <div class="container">
+        <!-- Interactive filter buttons (Jump Links) -->
+        <div class="filter-container" style="position: sticky; top: 80px; z-index: 99; background: var(--color-bg-surface); padding: 1rem 0; border-bottom: 1px solid var(--color-border-subtle);">
+          <button class="filter-btn active" data-target="leadership">Leadership &amp; Operations</button>
+          <button class="filter-btn" data-target="counseling">Counseling &amp; Therapy</button>
+          <button class="filter-btn" data-target="psychiatric">Psychiatric Services</button>
+          <button class="filter-btn" data-target="education">Educational &amp; Tutoring</button>
+          <button class="filter-btn" data-target="coaching">Life Coaching</button>
+        </div>
+
+        <!-- Section 1: Leadership & Operations -->
+        <div id="leadership" class="team-section-block">
+          <h2 class="section-title">Clinical Leadership &amp; Operations</h2>
+          <div class="team-grid-extended">
+    """
+    
+    for member in leadership_team:
+        team_html += make_card(member, "leadership-card")
         
     team_html += """
+          </div>
         </div>
+
+        <!-- Section 2: Clinical Counseling Team -->
+        <div id="counseling" class="team-section-block">
+          <h2 class="section-title counseling-title">Clinical Counseling &amp; Therapy</h2>
+          <div class="team-grid-extended">
+    """
+    
+    for member in counseling_team:
+        team_html += make_card(member)
+        
+    team_html += """
+          </div>
+        </div>
+
+        <!-- Section 3: Psychiatric Services -->
+        <div id="psychiatric" class="team-section-block">
+          <h2 class="section-title psychiatric-title">Psychiatric Services</h2>
+          <div class="team-grid-extended">
+    """
+    
+    for member in psychiatric_team:
+        team_html += make_card(member, "psychiatric-card")
+        
+    team_html += """
+          </div>
+        </div>
+
+        <!-- Section 4: Specialized Educational & Tutoring Team -->
+        <div id="education" class="team-section-block">
+          <h2 class="section-title">Specialized Educational &amp; Tutoring</h2>
+          <div class="team-grid-extended">
+    """
+    
+    for member in education_team:
+        team_html += make_card(member)
+        
+    team_html += """
+          </div>
+        </div>
+
+        <!-- Section 5: Life Coaching -->
+        <div id="coaching" class="team-section-block">
+          <h2 class="section-title coaching-title">Life Coaching</h2>
+          <div class="team-grid-extended">
+    """
+    
+    for member in coaching_team:
+        team_html += make_card(member)
+        
+    team_html += """
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -409,28 +532,49 @@ def build_team():
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.team-card');
       
       filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Update active button
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          const filterValue = btn.getAttribute('data-filter');
-          
-          cards.forEach(card => {
-            if (filterValue === 'all') {
-              card.style.display = 'flex';
-            } else {
-              const cardCat = card.getAttribute('data-category');
-              if (cardCat === filterValue) {
-                card.style.display = 'flex';
-              } else {
-                card.style.display = 'none';
-              }
-            }
-          });
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+            const filterContainerHeight = document.querySelector('.filter-container').offsetHeight;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - filterContainerHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update active button state
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        });
+      });
+      
+      // Update active button on scroll
+      window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.team-section-block');
+        const headerHeight = document.querySelector('.main-header').offsetHeight;
+        const filterContainerHeight = document.querySelector('.filter-container').offsetHeight;
+        let currentActive = 'leadership';
+        
+        sections.forEach(sec => {
+          const top = sec.offsetTop - headerHeight - filterContainerHeight - 60;
+          if (window.pageYOffset >= top) {
+            currentActive = sec.getAttribute('id');
+          }
+        });
+        
+        filterBtns.forEach(btn => {
+          if (btn.getAttribute('data-target') === currentActive) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
         });
       });
     });
