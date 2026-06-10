@@ -1584,6 +1584,18 @@ a:hover {
   margin-top: 4px;
 }
 
+.badge-leadership {
+  background-color: #f5f3ff;
+  color: #5b21b6;
+  border: 1px solid #ddd6fe;
+}
+
+.badge-operations {
+  background-color: #ecfeff;
+  color: #083344;
+  border: 1px solid #c5f6fa;
+}
+
 .team-bio {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);

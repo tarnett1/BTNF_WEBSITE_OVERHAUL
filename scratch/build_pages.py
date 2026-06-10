@@ -528,16 +528,6 @@ def build_team():
     # Helper to generate a single staff card
     def make_card(member, extra_classes=""):
         cat = member["category"]
-        badge_class = "badge-counseling"
-        if cat == "education":
-            badge_class = "badge-academic"
-        elif cat == "psychiatric":
-            badge_class = ""
-            
-        badge_style = ""
-        if cat == "psychiatric":
-            badge_style = 'style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;"'
-            
         role_label = member["role"]
         reports_to = member.get("reports_to", "")
         reports_to_html = f'<div class="reports-to-text">Reports to: {reports_to}</div>' if reports_to else ""
@@ -578,13 +568,46 @@ def build_team():
             <p class="team-bio" style="white-space: pre-wrap;">{bio}</p>
             """
         
-        # Format team badge text
-        badge_text = cat.title() + " Team"
-        if cat == "coaching":
-            badge_text = "Life Coaching"
-            badge_style = 'style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;"'
-        elif cat == "psychiatric":
-            badge_text = "Psychiatric Services"
+        # Generate badges (multi-tag support)
+        badges_html = ""
+        if "tags" in member:
+            badges_html += '<div class="team-badge-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;">'
+            for tag in member["tags"]:
+                b_class = "team-badge"
+                b_style = ""
+                tag_lower = tag.lower()
+                if "leadership" in tag_lower:
+                    b_class += " badge-leadership"
+                elif "operations" in tag_lower:
+                    b_class += " badge-operations"
+                elif "counseling" in tag_lower or "therapy" in tag_lower:
+                    b_class += " badge-counseling"
+                elif "education" in tag_lower or "tutor" in tag_lower or "academic" in tag_lower:
+                    b_class += " badge-academic"
+                elif "psychiatric" in tag_lower:
+                    b_style = 'style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;"'
+                elif "coach" in tag_lower:
+                    b_style = 'style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;"'
+                else:
+                    b_style = 'style="background-color: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;"'
+                badges_html += f'<span class="{b_class}" {b_style}>{tag}</span>'
+            badges_html += '</div>'
+        else:
+            b_class = "team-badge badge-counseling"
+            if cat == "education":
+                b_class = "team-badge badge-academic"
+            
+            b_style = ""
+            b_text = cat.title() + " Team"
+            if cat == "psychiatric":
+                b_class = "team-badge"
+                b_style = 'style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;"'
+                b_text = "Psychiatric Services"
+            elif cat == "coaching":
+                b_style = 'style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;"'
+                b_text = "Life Coaching"
+            
+            badges_html = f'<span class="{b_class}" {b_style}>{b_text}</span>'
             
         return f"""
           <!-- Staff Card: {member["name"]} -->
@@ -595,7 +618,7 @@ def build_team():
                 <h4>{member["name"]}</h4>
                 <span class="team-role">{role_label}</span>
                 {reports_to_html}
-                <span class="team-badge {badge_class}" {badge_style}>{badge_text}</span>
+                {badges_html}
               </div>
             </div>
             {f'<p class="education-text">{edu_label}</p>' if edu_label else ''}

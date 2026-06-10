@@ -51,7 +51,8 @@
     "education": "",
     "bio": "Director of Operations\n\nDevin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master\u2019s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.\n\nDevin earned his bachelor\u2019s degree in psychology and is credentialed as a teacher in the state of Florida in the areas of secondary Social Sciences and English. Since moving to Florida, he has worked within the Nassau County school system as both a teacher and athletics coach, providing him with meaningful experience supporting children, adolescents, and families within school and community settings.\n\nPrior to his career in counseling and education, Devin served in law enforcement in multiple roles, including patrol officer, detective, S.W.A.T. operator, and District Attorney investigator. Through this work, he developed a strong understanding of the cumulative stress, trauma exposure, and relational strain often experienced by first responders and public safety professionals. As a result, he is particularly passionate about supporting first responders, veterans, and their families, as well as individuals navigating high-stress occupations.\n\nIn his clinical work, Devin provides counseling services to adolescents, adults, couples, and families. He has experience and special interest in working with clients presenting with trauma and stress-related concerns, anxiety, depression, grief and loss, relationship challenges, occupational stress, and life transitions. When working with couples, Devin integrates Gottman Method\u2013informed interventions to support healthy communication, conflict management, and relationship strengthening. His EMDR-informed approach supports clients processing distressing experiences in a structured, evidence-based manner.\n\nWhile serving as a police officer, Devin was assigned to a joint task force composed of officers from multiple agencies and clinicians from the Los Angeles County Department of Mental Health. These co-response teams functioned as mobile psychiatric and psychological crisis intervention units, providing on-scene mental health evaluations, crisis intervention, and coordination of wraparound services for individuals experiencing acute mental health needs in the community.\n\nOutside of his professional work, Devin is an enthusiastic public speaker, educator, and small-group facilitator within his local church and community. He enjoys staying active and spending time with his family, including camping, beachcombing, traveling, and attending his daughter\u2019s dance and cheer recitals.\n\nSpecialties\n\nEMDR Trained\n\nCertified in crisis intervention tactics\n\nLaw Enforcement Trauma Response Team Member\n\nTrained in Peer Counseling\n\nAssociation of Threat Assessment Professionals, Certified Threat Manager (CTM)\n\nSYMBIS Facilitator",
     "image": "images/devin_mcclure.jpg",
-    "category": "counseling"
+    "category": "counseling",
+    "tags": ["Leadership", "Operations", "Counseling Team"]
   },
   {
     "key": "hailey-dittenbir",
@@ -123,7 +124,8 @@
     "education": "Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.",
     "bio": "Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.\n\nMarty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well. She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples. She is excited to call Nassau County home, where she will continue to serve for many years to come.\n\nSpecialties:\n- Anxiety\n- Depression\n- Grief & Trauma\n- Weight Loss\n- Mood Disorders\n- Post Traumatic Stress Disorder (PTSD)\n\nAdditional Training in:\n- DBT (Dialectical Behavior Therapy)\n- CBT (Cognitive Behavior Therapy)\n- Hypno-Counting\n- Enneagram\n- Love & Logic",
     "image": "images/marty.jpg",
-    "category": "counseling"
+    "category": "counseling",
+    "tags": ["Clinical Leadership", "Counseling Team"]
   },
   {
     "key": "monica-hemming",
@@ -213,6 +215,7 @@
     "education": "",
     "bio": "Mike is the co-owner of Breakthroughs of North Florida, overseeing all business operations and marketing. Alongside his wife, Marty Edwards, he helped establish the practice to combine educational and mental health support for families.\n\nMike and Marty returned from ten years of service as missionaries in Honduras, Central America, to launch the business. In the early stages of Breakthroughs, Mike worked in the HVAC industry to support the business financially while helping behind the scenes late into the night. In 2019, he officially joined the Breakthroughs team full-time to direct business operations, infrastructure, and strategic marketing.",
     "image": "images/mike.jpg",
-    "category": "counseling"
+    "category": "counseling",
+    "tags": ["Leadership", "Business Operations"]
   }
 ]
