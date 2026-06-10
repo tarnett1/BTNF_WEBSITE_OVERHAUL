@@ -99,11 +99,44 @@
       gap: 2.5rem;
     }
     
-    .team-bio-full {
+    .reports-to-text {
+      font-size: 0.85rem;
+      color: var(--color-primary-navy);
+      font-weight: 600;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+    
+    .team-bio {
       margin-top: 1rem;
       font-size: 0.95rem;
       line-height: 1.6;
       color: var(--color-text-muted);
+    }
+    
+    .bio-toggle-btn {
+      background: none;
+      border: none;
+      color: var(--color-academic-primary-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      text-decoration: underline;
+    }
+    .bio-toggle-btn:hover {
+      color: var(--color-primary-navy);
+      transform: translateX(2px);
+    }
+    .bio-toggle-btn:focus {
+      outline: 2px solid var(--color-academic-primary);
+      outline-offset: 2px;
+      border-radius: 2px;
     }
     
     .education-text {
@@ -369,11 +402,17 @@
               <div class="team-meta">
                 <h4>Devin McClure</h4>
                 <span class="team-role">Registered Mental Health Counseling Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Director of Operations
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Director of Operations
+
+Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Director of Operations
 
 Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master’s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.
 
@@ -400,6 +439,9 @@ Trained in Peer Counseling
 Association of Threat Assessment Professionals, Certified Threat Manager (CTM)
 
 SYMBIS Facilitator</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Marty Edwards -->
@@ -409,11 +451,15 @@ SYMBIS Facilitator</p>
               <div class="team-meta">
                 <h4>Marty Edwards</h4>
                 <span class="team-role">Licensed Marriage & Family Therapist</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             <p class="education-text">Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.</p>
-            <p class="team-bio-full">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.
 
 Marty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well. She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples. She is excited to call Nassau County home, where she will continue to serve for many years to come.
 
@@ -431,20 +477,32 @@ Additional Training in:
 - Hypno-Counting
 - Enneagram
 - Love & Logic</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
-          <!-- Staff Card: Lizz Arnett -->
-          <div class="team-card leadership-card" data-category="education">
+          <!-- Staff Card: Mike Edwards -->
+          <div class="team-card leadership-card" data-category="counseling">
             <div class="team-card-header">
-              <img class="team-avatar" src="images/lizz.jpg" alt="Lizz Arnett">
+              <img class="team-avatar" src="images/mike.jpg" alt="Mike Edwards">
               <div class="team-meta">
-                <h4>Lizz Arnett</h4>
-                <span class="team-role">Educational Services Specialist</span>
-                <span class="team-badge badge-academic" >Education Team</span>
+                <h4>Mike Edwards</h4>
+                <span class="team-role">Co-owner / Business Operations & Marketing</span>
+                
+                <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!</p>
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Mike is the co-owner of Breakthroughs of North Florida, overseeing all business operations and marketing. Alongside his wife, Marty Edwards, he helped establish the practice to combine educational and mental health support for families....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Mike is the co-owner of Breakthroughs of North Florida, overseeing all business operations and marketing. Alongside his wife, Marty Edwards, he helped establish the practice to combine educational and mental health support for families.
+
+Mike and Marty returned from ten years of service as missionaries in Honduras, Central America, to launch the business. In the early stages of Breakthroughs, Mike worked in the HVAC industry to support the business financially while helping behind the scenes late into the night. In 2019, he officially joined the Breakthroughs team full-time to direct business operations, infrastructure, and strategic marketing.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           </div>
@@ -462,11 +520,17 @@ Additional Training in:
               <div class="team-meta">
                 <h4>Amanda King</h4>
                 <span class="team-role">Intern - Counseling</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">B.S.ESE / B.S.ED
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">B.S.ESE / B.S.ED
+
+Amanda was born and raised in Maryland before relocating to Florida with her husband, who is serving on active duty, and their three children. She holds a Bachelor...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">B.S.ESE / B.S.ED
 
 Amanda was born and raised in Maryland before relocating to Florida with her husband, who is serving on active duty, and their three children. She holds a Bachelor of Arts Degree in Elementary and Special Education from Mount St. Mary’s University. Amanda is a counseling intern with Liberty University working on a Master’s degree in Clinical Mental Health Counseling practicing under the supervision of a qualified licensed mental health professional.
 
@@ -487,6 +551,9 @@ Ukeru
 Youth Mental Health First Aid
 
 Zones of Regulations</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Aubrey Griffith -->
@@ -496,11 +563,15 @@ Zones of Regulations</p>
               <div class="team-meta">
                 <h4>Aubrey Griffith</h4>
                 <span class="team-role">Registered Mental Health Counselor Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Originally from Southeast Georgia, Aubrey has been a resident of the Jacksonville area for the past fourteen years. During this period, she served as a figure skating coach, demonstrating a strong commitment to helping athletes of all ages and skill levels in achieving their objectives. It was through this work that she developed a keen interest in supporting individuals emotionally, which ultimately inspired her to pursue a career in mental health counseling.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Originally from Southeast Georgia, Aubrey has been a resident of the Jacksonville area for the past fourteen years. During this period, she served as a figure skating coach, demonstrating...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Originally from Southeast Georgia, Aubrey has been a resident of the Jacksonville area for the past fourteen years. During this period, she served as a figure skating coach, demonstrating a strong commitment to helping athletes of all ages and skill levels in achieving their objectives. It was through this work that she developed a keen interest in supporting individuals emotionally, which ultimately inspired her to pursue a career in mental health counseling.
 
 Academically, Aubrey has earned a Master of Science in Clinical Mental Health Counseling with a specialization in Trauma & Crisis Counseling from Walden University, as well as a Bachelor of Arts in Educational Studies from Western Governors University.
 
@@ -509,6 +580,9 @@ Children (Ages 8 and up)
 Adolescents
 
 Adults</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Bethany Paige -->
@@ -518,11 +592,17 @@ Adults</p>
               <div class="team-meta">
                 <h4>Bethany Paige</h4>
                 <span class="team-role">Licensed</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Mental Health Counse
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Mental Health Counse
+
+Bethany is a native New Englander but moved to the Sunshine State in November 2020 with her family. She enjoys taking daily walks and frequenting the beautiful beaches nearby....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Mental Health Counse
 
 Bethany is a native New Englander but moved to the Sunshine State in November 2020 with her family. She enjoys taking daily walks and frequenting the beautiful beaches nearby. She favors a holistic approach to overall health and wellness and employs several psychodynamic modalities to help people identify and overcome obstacles, find healing and freedom from past hurts, and cultivate healthier and more fulfilling relationships.
 
@@ -535,6 +615,9 @@ Adolescents and young adults
 Couples and Families
 
 Adults</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Bridget Hanlon -->
@@ -544,11 +627,15 @@ Adults</p>
               <div class="team-meta">
                 <h4>Bridget Hanlon</h4>
                 <span class="team-role">Licensed Mental Health Counselor</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Originally from Southern California, Bridget is a Licensed Clinical Social Worker (LCSW) who values the holistic wellbeing of each person. She believes every individual possesses inherent dignity and is created for meaningful connection and relationship.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Originally from Southern California, Bridget is a Licensed Clinical Social Worker (LCSW) who values the holistic wellbeing of each person. She believes every individual possesses inherent...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Originally from Southern California, Bridget is a Licensed Clinical Social Worker (LCSW) who values the holistic wellbeing of each person. She believes every individual possesses inherent dignity and is created for meaningful connection and relationship.
 
 Bridget received her training in clinical and medical social work from the University of Washington in 2015 and has experience working in a variety of settings, including hospitals, outpatient clinics, and corporate leadership roles. These experiences have strengthened both her clinical expertise and her ability to connect compassionately with clients from diverse backgrounds including:
 
@@ -567,6 +654,9 @@ Military families navigating deployments, high stress, and the unique challenges
 Bridget’s counseling style is warm, compassionate, and direct. She is able to incorporate a faith-based perspective into therapy when desired by the client. She is formally trained in Cognitive Behavioral Therapy (CBT) and has also completed advanced training in Emotionally Focused Therapy (EFT) for both couples and individuals.
 
 As a military spouse, Bridget is a transplant to the area and is excited to serve the Nassau County community through her work as a therapist!</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Caitlin Rezac -->
@@ -576,17 +666,30 @@ As a military spouse, Bridget is a transplant to the area and is excited to serv
               <div class="team-meta">
                 <h4>Caitlin Rezac</h4>
                 <span class="team-role">Registered Clinical Social Work Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             <p class="education-text">As a Masters of Social Work (MSW) she provides professional counseling services to: She holds a Master's Degree in Social Work from the University of Maryland and a Bachelor's Degree in Social Work from Hood College in Frederick, Maryland. Caitlin is currently in the process of obtaining her licensure in the State of Florida.</p>
-            <p class="team-bio-full">Caitlin grew up in Frederick, Maryland and moved to Nassau County with her husband and two children in 2016.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Caitlin grew up in Frederick, Maryland and moved to Nassau County with her husband and two children in 2016.
+
+Adults
+
+Couples
+
+Caitlin began her career providing at-home counseling services to seniors....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Caitlin grew up in Frederick, Maryland and moved to Nassau County with her husband and two children in 2016.
 
 Adults
 
 Couples
 
 Caitlin began her career providing at-home counseling services to seniors. Following this, she worked in a nursing home, where she focused on the assessment and discharge planning for residents. After dedicating time to raising her young children, Caitlin is now returning to her passion for assisting others through social work and counseling. She is eager to serve our community.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Devin McClure -->
@@ -596,11 +699,17 @@ Caitlin began her career providing at-home counseling services to seniors. Follo
               <div class="team-meta">
                 <h4>Devin McClure</h4>
                 <span class="team-role">Registered Mental Health Counseling Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Director of Operations
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Director of Operations
+
+Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Director of Operations
 
 Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master’s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.
 
@@ -627,6 +736,9 @@ Trained in Peer Counseling
 Association of Threat Assessment Professionals, Certified Threat Manager (CTM)
 
 SYMBIS Facilitator</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Hailey Dittenbir -->
@@ -636,11 +748,19 @@ SYMBIS Facilitator</p>
               <div class="team-meta">
                 <h4>Hailey Dittenbir</h4>
                 <span class="team-role">Registered Mental Health Counselor Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             <p class="education-text">Hailey initially became a part of Breakthroughs with our educational team, and we are now very pleased to support her transition to the counseling team as she completes her education at Liberty University in Clinical Mental Health Counseling.</p>
-            <p class="team-bio-full">Hailey comes to us from Michigan
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Hailey comes to us from Michigan
+
+and has resided in the greater Jacksonville area for the past eight years.
+
+She holds a Bachelor of Science in Christian Counseling from Trinity Baptist...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Hailey comes to us from Michigan
 
 and has resided in the greater Jacksonville area for the past eight years.
 
@@ -651,6 +771,9 @@ As a counselor-in-training, working under supervision, she provides services to:
 Children (ages 7 & up)
 
 Adolescents</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Jade Hebert -->
@@ -660,15 +783,22 @@ Adolescents</p>
               <div class="team-meta">
                 <h4>Jade Hebert</h4>
                 <span class="team-role">Registered Clinical Social Work Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Jade, a Registered Clinical Social Work Intern at our practice. Jade holds a graduate degree from the University of North Florida, where she focused on substance use and attachment theory. This advanced education forms the basis of her compassionate and individualized approach to client care.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Jade, a Registered Clinical Social Work Intern at our practice. Jade holds a graduate degree from the University of North Florida, where she focused on substance use and attachment theory....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Jade, a Registered Clinical Social Work Intern at our practice. Jade holds a graduate degree from the University of North Florida, where she focused on substance use and attachment theory. This advanced education forms the basis of her compassionate and individualized approach to client care.
 
 Jade is deeply committed to establishing a secure and encouraging space where clients can feel comfortable exploring their experiences, developing resilience, and progressing toward healing. Her therapeutic methods are rooted in trauma-informed and client-centered principles. She is currently in the process of obtaining her full licensure as a Clinical Social Worker.
 
 Beyond her clinical work, Jade is an enthusiastic football fan and a dedicated supporter of the Jacksonville Jaguars. She also brings valuable experience from her background in professional dog training, which has provided her with a deeper understanding of behavior, communication, and the importance of patience and consistency in fostering strong relationships.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Jason Kugel -->
@@ -678,11 +808,15 @@ Beyond her clinical work, Jade is an enthusiastic football fan and a dedicated s
               <div class="team-meta">
                 <h4>Jason Kugel</h4>
                 <span class="team-role">Licensed Mental Health Counselor</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Jason Kugel is a Licensed Mental Health Counselor with a strong foundation in service, beginning his professional journey in the United States Navy shortly after graduating high school. Born in Germany and raised in Newark, Delaware, he enlisted in 1991 and served 20 years — first as an aircraft electrician and later as a Master-at-Arms — retiring as a Chief Petty Officer. His military experience instilled in him a deep commitment to mentorship, resilience, and supporting individuals and families through high-stress situations.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Jason Kugel is a Licensed Mental Health Counselor with a strong foundation in service, beginning his professional journey in the United States Navy shortly after graduating high school....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Jason Kugel is a Licensed Mental Health Counselor with a strong foundation in service, beginning his professional journey in the United States Navy shortly after graduating high school. Born in Germany and raised in Newark, Delaware, he enlisted in 1991 and served 20 years — first as an aircraft electrician and later as a Master-at-Arms — retiring as a Chief Petty Officer. His military experience instilled in him a deep commitment to mentorship, resilience, and supporting individuals and families through high-stress situations.
 
 Following his retirement, Jason earned his Master’s Degree in Mental Health Counseling in 2018 and has since provided care across inpatient, outpatient, and telehealth settings. He has extensive experience working with children, adolescents, adults, veterans, and couples in both crisis intervention and ongoing therapy. His background includes in-home therapy, school-based counseling, private practice, and three years in a pediatric hospital inpatient unit.
 
@@ -699,6 +833,9 @@ Depression
 Children
 
 Adolescents</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Jen Flores -->
@@ -708,15 +845,22 @@ Adolescents</p>
               <div class="team-meta">
                 <h4>Jen Flores</h4>
                 <span class="team-role">(Intern)</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Jen is currently in the final stages of completing her Master of Social Work with a clinical focus in Individuals and Families through Liberty University and earned her Bachelor’s degree from University of North Florida. She is a certified Exceptional Student Education (ESE) teacher with more than 10 years of experience supporting children, adolescents, adults, and families.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Jen is currently in the final stages of completing her Master of Social Work with a clinical focus in Individuals and Families through Liberty University and earned her Bachelor’s degree from University of North Florida....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Jen is currently in the final stages of completing her Master of Social Work with a clinical focus in Individuals and Families through Liberty University and earned her Bachelor’s degree from University of North Florida. She is a certified Exceptional Student Education (ESE) teacher with more than 10 years of experience supporting children, adolescents, adults, and families.
 
 Jen’s background includes serving as a school social work intern, where she supported students and families through emotional, behavioral, and life challenges. She has experience working with trauma, anxiety, depression, self-esteem concerns, behavioral challenges, and family stressors.
 
 As the spouse of an Army veteran and mother of two, Jen values compassion, resilience, and the importance of strong support systems. Her approach is supportive, client-centered, and focused on helping clients feel heard, empowered, and encouraged throughout their journey toward growth and healing.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Jenny Savage -->
@@ -726,11 +870,15 @@ As the spouse of an Army veteran and mother of two, Jen values compassion, resil
               <div class="team-meta">
                 <h4>Jenny Savage</h4>
                 <span class="team-role">Licensed Mental Health Counselor</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Jenny’s passion for helping others began when she volunteered for three years at the Florida Baptist Children’s Home working with the children of the Single Moms program. In addition, she has also spent time working with children refugees from war-torn countries and has taught English to young adolescents in Slovakia. Jenny has also been able to coach Upward Cheerleading at her local church.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Jenny’s passion for helping others began when she volunteered for three years at the Florida Baptist Children’s Home working with the children of the Single Moms program....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Jenny’s passion for helping others began when she volunteered for three years at the Florida Baptist Children’s Home working with the children of the Single Moms program. In addition, she has also spent time working with children refugees from war-torn countries and has taught English to young adolescents in Slovakia. Jenny has also been able to coach Upward Cheerleading at her local church.
 
 As a counselor-in-training, working under supervision, she provides services to:
 
@@ -741,6 +889,9 @@ Adolescents
 Her educational experiences include graduating with her Associates Degree while still in high school in 2019. She continued her education at the University of North Florida, earning a Bachelor of Science in Psychology in spring of 2021. She is currently working towards her Master’s Degree in Clinical Mental Health Counseling from Liberty University and is planning to complete her program in December of 2023.
 
 Jenny currently resides in northeast Florida, surrounded by her family, with whom she spends a lot of time with, especially her two precious nephews.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Katelynn Schmidt -->
@@ -750,11 +901,17 @@ Jenny currently resides in northeast Florida, surrounded by her family, with who
               <div class="team-meta">
                 <h4>Katelynn Schmidt</h4>
                 <span class="team-role">(Intern)</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             <p class="education-text">Furthermore, Katelynn is actively pursuing the Master's Level Certified Addiction Professional (MCAP) credential.</p>
-            <p class="team-bio-full">Originally from Pennsylvania, Katelynn has been living in the South since 2021 and currently resides in southeast Georgia.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Originally from Pennsylvania, Katelynn has been living in the South since 2021 and currently resides in southeast Georgia.
+
+After earning her Bachelor of Science in Psychology from...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Originally from Pennsylvania, Katelynn has been living in the South since 2021 and currently resides in southeast Georgia.
 
 After earning her Bachelor of Science in Psychology from Colorado Technical University, she made the decision to pursue a career in mental health counseling. She has successfully obtained a Master of Science in Counseling and Mental Health Services with a concentration in addictions counseling from Post University.
 
@@ -769,6 +926,9 @@ Adolescents
 Children
 
 Click Here for Intake Forms</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Kelly Goss -->
@@ -778,17 +938,24 @@ Click Here for Intake Forms</p>
               <div class="team-meta">
                 <h4>Kelly Goss</h4>
                 <span class="team-role">Registered Mental Health Counselor Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Originally from Atlanta, Kelly moved to Nassau county in 2016 and has proudly served the local community ever since. She earned her Master's degree in clinical mental health counseling from Liberty University and is passionate about walking alongside individuals and families as they navigate life's challenges.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Originally from Atlanta, Kelly moved to Nassau county in 2016 and has proudly served the local community ever since. She earned her Master's degree in clinical mental health counseling...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Originally from Atlanta, Kelly moved to Nassau county in 2016 and has proudly served the local community ever since. She earned her Master's degree in clinical mental health counseling from Liberty University and is passionate about walking alongside individuals and families as they navigate life's challenges.
 
 Kelly has experience working with children, teens, adults, and seniors. She utilizes evidence-based techniques drawn from cognitive behavioral therapy (CBT) to help clients identify unhelpful patterns, build practical coping skills, and create meaningful change.
 
 Known for her gentle and warm demeanor, Kelly creates a safe and supportive environment where clients feel heard and understood. At the same time, she thoughtfully challenges her clients to step outside of their comfort zones and collaboratively engage in their therapeutic process and healing.
 
 Outside of the counseling office, Kelly enjoys spending time at the beach with her husband and children embracing the coastal lifestyle that Nassau county has to offer.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Monica Hemming -->
@@ -798,11 +965,15 @@ Outside of the counseling office, Kelly enjoys spending time at the beach with h
               <div class="team-meta">
                 <h4>Monica Hemming</h4>
                 <span class="team-role">Registered Mental Health Counseling Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             <p class="education-text">Monica has her Master Degree in Clinical Mental Health Counseling from Liberty University.</p>
-            <p class="team-bio-full">Monica was born and raised in California but has been a Nassau County resident since 2002. Monica is a graduate from University of North Florida where she earned her Bachelor of Arts Degree in Psychology in 2004. Monica worked as a case manager for the State of Florida serving foster children, adoptive parents and families who were working towards reunification. Monica also has experience as a certified teacher for the State of Florida where she worked in both Duval and Nassau County.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Monica was born and raised in California but has been a Nassau County resident since 2002. Monica is a graduate from University of North Florida where she earned her Bachelor of Arts Degree in Psychology in 2004....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Monica was born and raised in California but has been a Nassau County resident since 2002. Monica is a graduate from University of North Florida where she earned her Bachelor of Arts Degree in Psychology in 2004. Monica worked as a case manager for the State of Florida serving foster children, adoptive parents and families who were working towards reunification. Monica also has experience as a certified teacher for the State of Florida where she worked in both Duval and Nassau County.
 
 Monica has been married to her husband since 2002. Monica’s husband is a military veteran; therefore, she can relate and understand the difficulties associated with both active and retired life of a 20-year career veteran including an 18-month deployment to Afghanistan. Together they have 3 children. She and her husband have foster care experience where they adopted one of their children from the foster care system.
 
@@ -841,6 +1012,9 @@ American Counseling Association Member
 Association for Spiritual, Ethical, and Religious Values in Counseling Member
 
 Ambassador at ZOOMA Women’s Race Series</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Nicki Peterson -->
@@ -850,11 +1024,15 @@ Ambassador at ZOOMA Women’s Race Series</p>
               <div class="team-meta">
                 <h4>Nicki Peterson</h4>
                 <span class="team-role">Registered Clinical Social Work Intern</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Nicki Peterson is a Registered Clinical Social Work Intern (RCSWI) who provides counseling to children, adolescents, adults, and families. She holds a Master’s Degree in Social Work from the University of Nevada–Las Vegas and a Bachelor’s Degree in Elementary Education from the University of Montana.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Nicki Peterson is a Registered Clinical Social Work Intern (RCSWI) who provides counseling to children, adolescents, adults, and families. She holds a Master’s Degree in Social Work...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Nicki Peterson is a Registered Clinical Social Work Intern (RCSWI) who provides counseling to children, adolescents, adults, and families. She holds a Master’s Degree in Social Work from the University of Nevada–Las Vegas and a Bachelor’s Degree in Elementary Education from the University of Montana.
 
 Nicki brings over a decade of experience supporting individuals across educational, child welfare, and clinical settings. Before becoming a counselor, she worked as an elementary school teacher and Trust-Based Relational Intervention (TBRI) practitioner, educating hundreds of caregivers, educators, and professionals in trauma-informed caregiving methods. She has particular expertise in supporting children in foster care with complex trauma and behavioral challenges and now works with clients of all ages navigating concerns such as anxiety, depression, grief, trauma, and more.
 
@@ -875,6 +1053,9 @@ Trust-Based Relational Intervention (TBRI)
 Mindfulness-based interventions
 
 Play-based and creative modalities</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Peter Agdamag -->
@@ -884,11 +1065,15 @@ Play-based and creative modalities</p>
               <div class="team-meta">
                 <h4>Peter Agdamag</h4>
                 <span class="team-role">(Intern)</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Peter, a distinguished military veteran who has served our country with honor in the Army, Navy, and Marine Corps. Peter possesses a deep and personal understanding of the unique challenges faced by active-duty and reserve service members, veterans, and their families, and he is passionately committed to providing them with meaningful support.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Peter, a distinguished military veteran who has served our country with honor in the Army, Navy, and Marine Corps. Peter possesses a deep and personal understanding of the unique challenges...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Peter, a distinguished military veteran who has served our country with honor in the Army, Navy, and Marine Corps. Peter possesses a deep and personal understanding of the unique challenges faced by active-duty and reserve service members, veterans, and their families, and he is passionately committed to providing them with meaningful support.
 
 Having grown up in Brandon, Florida, Peter pursued higher education at the University of Florida, where he earned his Bachelor's degree. His dedication to service and support led him to further his studies, culminating in a Master of Divinity in Biblical Counseling from Southeastern Baptist Theological Seminary in Wake Forest, North Carolina. Continuing his commitment to helping others, Peter is currently undertaking a Master’s Degree in Clinical Mental Health Counseling at Liberty University.
 
@@ -923,6 +1108,9 @@ Moral Injury Certificate Program (MICP)
 SYMBIS Facilitator
 
 Certification in Critical Incident Stress Management (CCISM)</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Roseline Shofolu -->
@@ -932,11 +1120,21 @@ Certification in Critical Incident Stress Management (CCISM)</p>
               <div class="team-meta">
                 <h4>Roseline Shofolu</h4>
                 <span class="team-role">Licensed Mental Health Counselor</span>
+                
                 <span class="team-badge badge-counseling" >Counseling Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Meet Roseline Shofolu, LMHC, NCC, CCTSI
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Meet Roseline Shofolu, LMHC, NCC, CCTSI
+
+Welcome — I’m glad you’re here.
+
+My name is
+
+, and I’m a Licensed Mental Health Counselor (LMHC) with a passion for helping individuals and families heal, grow, and thrive....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Meet Roseline Shofolu, LMHC, NCC, CCTSI
 
 Welcome — I’m glad you’re here.
 
@@ -993,6 +1191,9 @@ Play Therapy
 Substance Abuse & Recovery
 
 Integrating Faith & Spirituality in Healing</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           </div>
@@ -1010,15 +1211,22 @@ Integrating Faith & Spirituality in Healing</p>
               <div class="team-meta">
                 <h4>Casey Goss</h4>
                 <span class="team-role">Psychiatric Mental Health Nurse Practitioner</span>
+                
                 <span class="team-badge " style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;">Psychiatric Services</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated to Nassau County in 2016 with his wife and their two children, where he has since become deeply rooted in the local community.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated to Nassau County in 2016 with his wife and their two children, where he has since become deeply rooted in the local community.
 
 Casey takes a thoughtful, conservative approach to medication management, prioritizing therapy and viewing medication as one part of a broader, often short-term, treatment plan. He is passionate about partnering with patients to support lasting mental wellness and believes in treating the whole person within the context of their family and environment.
 
 With both professional expertise and personal experience raising neurodivergent children, Casey brings a unique level of empathy, insight, and advocacy to his work. He is committed to helping individuals and families feel supported, understood, and empowered as they move toward not just stability, but true thriving.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           </div>
@@ -1036,11 +1244,18 @@ With both professional expertise and personal experience raising neurodivergent 
               <div class="team-meta">
                 <h4>Alex Beveridge</h4>
                 <span class="team-role">Specialized Academic Tutor</span>
+                
                 <span class="team-badge badge-academic" >Education Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Alex has a passion for helping children reach their full potential. This passion began long before her career in education. Alex spent a lot of her childhood in her mother’s elementary-aged classroom. After high school, she worked as a private caregiver for a child with both physical disabilities and learning disabilities. It was during this time that she discovered a love for working one-on-one with children. Her passion for teaching children with various disabilities blossomed when she was a teacher with a home education co-op. In 2020 she and her family moved to Fernandina Beach to improve their quality of life. Alex is trained in all of our customized tutoring programs including our Lindamood-Bell, Barton, Pathways, and EIIIP programs and absolutely loves using them to help her students succeed in and out of the classroom. When not working you can find Alex playing on the beach with her two daughters.</p>
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Alex has a passion for helping children reach their full potential. This passion began long before her career in education. Alex spent a lot of her childhood in her mother’s elementary-aged classroom....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Alex has a passion for helping children reach their full potential. This passion began long before her career in education. Alex spent a lot of her childhood in her mother’s elementary-aged classroom. After high school, she worked as a private caregiver for a child with both physical disabilities and learning disabilities. It was during this time that she discovered a love for working one-on-one with children. Her passion for teaching children with various disabilities blossomed when she was a teacher with a home education co-op. In 2020 she and her family moved to Fernandina Beach to improve their quality of life. Alex is trained in all of our customized tutoring programs including our Lindamood-Bell, Barton, Pathways, and EIIIP programs and absolutely loves using them to help her students succeed in and out of the classroom. When not working you can find Alex playing on the beach with her two daughters.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Joanna McIntosh -->
@@ -1050,13 +1265,22 @@ With both professional expertise and personal experience raising neurodivergent 
               <div class="team-meta">
                 <h4>Joanna McIntosh</h4>
                 <span class="team-role">Educational Services Specialist</span>
+                
                 <span class="team-badge badge-academic" >Education Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">/ Certified Teacher
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">/ Certified Teacher
+
+Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I graduated with my bachelor’s degree in secondary math education from Florida Agricultural and Mechanical University....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">/ Certified Teacher
 
 Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I graduated with my bachelor’s degree in secondary math education from Florida Agricultural and Mechanical University. I am a certified and former teacher. I taught math in a public school for about two years. Prior to that I had worked for Florida Virtual School as an intern. I started out teaching math here at Breakthroughs for a little over a year, as well as tutoring other programs. One thing about myself is that no matter where I go, I will always have a love and passion for education. Three things that I aim to do and hold as a life motto are to inspire, empower, and educate. I will use the information that I have learned from my education and life experiences to help bridge educational gaps.</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           <!-- Staff Card: Lizz Arnett -->
@@ -1066,11 +1290,18 @@ Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I 
               <div class="team-meta">
                 <h4>Lizz Arnett</h4>
                 <span class="team-role">Educational Services Specialist</span>
+                <div class="reports-to-text">Reports to: Alex Beveridge</div>
                 <span class="team-badge badge-academic" >Education Team</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!</p>
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs....</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           </div>
@@ -1088,11 +1319,15 @@ Hi! I am Joanna McIntosh. I was born and raised in Fernandina Beach, Florida. I 
               <div class="team-meta">
                 <h4>Madison Moore</h4>
                 <span class="team-role">Certified Life Coach</span>
+                
                 <span class="team-badge badge-counseling" style="background-color: #fef3c7; color: #d97706; border: 1px solid #fde68a;">Life Coaching</span>
               </div>
             </div>
             
-            <p class="team-bio-full">Madison is a certified life coach dedicated to helping individuals achieve their goals and find fulfillment in their lives. With years of experience, she uses her skills in providing guidance, support, and accountability to help her clients thrive.
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Madison is a certified life coach dedicated to helping individuals achieve their goals and find fulfillment in their lives. With years of experience, she uses her skills in providing...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Madison is a certified life coach dedicated to helping individuals achieve their goals and find fulfillment in their lives. With years of experience, she uses her skills in providing guidance, support, and accountability to help her clients thrive.
 
 Madison specializes in post-college transitions, high school to college transitions, prioritizing goals, and finding meaning in life. As a coach, she understands the challenges that come with these life changes and works closely with her clients to develop personalized plans that meet their unique needs and aspirations.
 
@@ -1101,6 +1336,9 @@ Her coaching sessions are designed to provide a safe and non-judgmental space wh
 As a coach, Madison believes in taking a holistic approach to coaching. She understands that every aspect of a client's life is interconnected and therefore, works with her clients to create a healthy work-life balance that supports their well-being.
 
 Whether you are a recent graduate looking to transition into the workforce or an individual seeking to achieve your goals and find your purpose in life, Madison is here to help. With her guidance and support, you can unlock your full potential, overcome obstacles, and create the life you desire. Book a coaching session with Madison today and start living your best life!</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
           </div>
         
           </div>
@@ -1159,6 +1397,27 @@ Whether you are a recent graduate looking to transition into the workforce or an
         });
       });
     });
+
+    // Toggle staff bio cards between preview and full view
+    function toggleBioCard(btn) {
+      const container = btn.closest('.team-bio-container');
+      if (!container) return;
+      const preview = container.querySelector('.bio-preview-text');
+      const full = container.querySelector('.bio-full-text');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      
+      if (isExpanded) {
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        btn.innerText = 'Read More';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        btn.innerText = 'Show Less';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
   </script>
     
   <!-- Global Footer -->

@@ -284,11 +284,44 @@ HEAD_TEMPL = """<!DOCTYPE html>
       gap: 2.5rem;
     }}
     
-    .team-bio-full {{
+    .reports-to-text {{
+      font-size: 0.85rem;
+      color: var(--color-primary-navy);
+      font-weight: 600;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }}
+    
+    .team-bio {{
       margin-top: 1rem;
       font-size: 0.95rem;
       line-height: 1.6;
       color: var(--color-text-muted);
+    }}
+    
+    .bio-toggle-btn {{
+      background: none;
+      border: none;
+      color: var(--color-academic-primary-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      text-decoration: underline;
+    }}
+    .bio-toggle-btn:hover {{
+      color: var(--color-primary-navy);
+      transform: translateX(2px);
+    }}
+    .bio-toggle-btn:focus {{
+      outline: 2px solid var(--color-academic-primary);
+      outline-offset: 2px;
+      border-radius: 2px;
     }}
     
     .education-text {{
@@ -466,14 +499,20 @@ def build_team():
     team_html += NAV_HTML
     
     # Separate lists
-    leadership_keys = ["marty-edwards", "lizz-arnett", "devin-mcclure"]
-    leadership_team = [m for m in staff_list if m["key"] in leadership_keys]
+    leadership_keys = ["devin-mcclure", "marty-edwards", "mike-edwards"]
+    # Preserve exact order of leadership_keys
+    leadership_team = []
+    for k in leadership_keys:
+        for m in staff_list:
+            if m["key"] == k:
+                leadership_team.append(m)
+                break
     
     psychiatric_team = [m for m in staff_list if m["key"] == "casey-goss"]
     coaching_team = [m for m in staff_list if m["key"] == "madison-moore"]
     
     # Filter counseling and education keeping leadership visible in their respective functional grids as well
-    counseling_team = [m for m in staff_list if m["category"] == "counseling" and m["key"] != "marty-edwards"]
+    counseling_team = [m for m in staff_list if m["category"] == "counseling" and m["key"] not in ["marty-edwards", "mike-edwards"]]
     education_team = [m for m in staff_list if m["category"] == "education"]
     
     # Helper to generate a single staff card
@@ -490,8 +529,35 @@ def build_team():
             badge_style = 'style="background-color: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe;"'
             
         role_label = member["role"]
+        reports_to = member.get("reports_to", "")
+        reports_to_html = f'<div class="reports-to-text">Reports to: {reports_to}</div>' if reports_to else ""
         edu_label = member["education"]
         bio = member["bio"]
+        
+        # Split bio for collapsible toggle if it exceeds 220 characters
+        if len(bio) > 220:
+            # Try to find a clean split point near 180 characters
+            split_point = 180
+            period_idx = bio.find('.', 160, 240)
+            if period_idx != -1:
+                split_point = period_idx + 1
+            else:
+                space_idx = bio.find(' ', 180, 220)
+                if space_idx != -1:
+                    split_point = space_idx
+            
+            preview_text = bio[:split_point].strip()
+            bio_html = f"""
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">{preview_text}...</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">{bio}</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            """
+        else:
+            bio_html = f"""
+            <p class="team-bio" style="white-space: pre-wrap;">{bio}</p>
+            """
         
         # Format team badge text
         badge_text = cat.title() + " Team"
@@ -509,11 +575,12 @@ def build_team():
               <div class="team-meta">
                 <h4>{member["name"]}</h4>
                 <span class="team-role">{role_label}</span>
+                {reports_to_html}
                 <span class="team-badge {badge_class}" {badge_style}>{badge_text}</span>
               </div>
             </div>
             {f'<p class="education-text">{edu_label}</p>' if edu_label else ''}
-            <p class="team-bio-full">{bio}</p>
+            {bio_html}
           </div>
         """
 
@@ -655,6 +722,27 @@ def build_team():
         });
       });
     });
+
+    // Toggle staff bio cards between preview and full view
+    function toggleBioCard(btn) {
+      const container = btn.closest('.team-bio-container');
+      if (!container) return;
+      const preview = container.querySelector('.bio-preview-text');
+      const full = container.querySelector('.bio-full-text');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      
+      if (isExpanded) {
+        preview.style.display = 'block';
+        full.style.display = 'none';
+        btn.innerText = 'Read More';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        preview.style.display = 'none';
+        full.style.display = 'block';
+        btn.innerText = 'Show Less';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
   </script>
     """
     

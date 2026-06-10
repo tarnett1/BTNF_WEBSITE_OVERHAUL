@@ -99,11 +99,44 @@
       gap: 2.5rem;
     }
     
-    .team-bio-full {
+    .reports-to-text {
+      font-size: 0.85rem;
+      color: var(--color-primary-navy);
+      font-weight: 600;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+    
+    .team-bio {
       margin-top: 1rem;
       font-size: 0.95rem;
       line-height: 1.6;
       color: var(--color-text-muted);
+    }
+    
+    .bio-toggle-btn {
+      background: none;
+      border: none;
+      color: var(--color-academic-primary-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      text-decoration: underline;
+    }
+    .bio-toggle-btn:hover {
+      color: var(--color-primary-navy);
+      transform: translateX(2px);
+    }
+    .bio-toggle-btn:focus {
+      outline: 2px solid var(--color-academic-primary);
+      outline-offset: 2px;
+      border-radius: 2px;
     }
     
     .education-text {

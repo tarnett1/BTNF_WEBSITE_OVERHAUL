@@ -186,7 +186,8 @@
     "education": "",
     "bio": "Lizz is originally from Ohio, but the calling of the ocean breeze brought her family down south. She has been married for 16 years and has 4 children and 3 dogs. Lizz is a knowledgeable educational professional with experience in Lindamood-Bell and Orton-Gillingham. With a passion for helping students succeed, she focuses on identifying learning differences and creating effective strategies to support individual needs. Lizz is dedicated to empowering learners and ensuring that every student can thrive in their educational journey. You can usually find her around the office in colorful and fun outfits that are always accompanied by the best earrings!",
     "image": "images/lizz.jpg",
-    "category": "education"
+    "category": "education",
+    "reports_to": "Alex Beveridge"
   },
   {
     "key": "madison-moore",
@@ -205,5 +206,14 @@
     "bio": "Casey is a board-certified Psychiatric Mental Health Nurse Practitioner (PMHNP-ARNP) serving children, adolescents, and adults across Florida. Originally from Atlanta, he relocated to Nassau County in 2016 with his wife and their two children, where he has since become deeply rooted in the local community.\n\nCasey takes a thoughtful, conservative approach to medication management, prioritizing therapy and viewing medication as one part of a broader, often short-term, treatment plan. He is passionate about partnering with patients to support lasting mental wellness and believes in treating the whole person within the context of their family and environment.\n\nWith both professional expertise and personal experience raising neurodivergent children, Casey brings a unique level of empathy, insight, and advocacy to his work. He is committed to helping individuals and families feel supported, understood, and empowered as they move toward not just stability, but true thriving.",
     "image": "images/casey.jpg",
     "category": "psychiatric"
+  },
+  {
+    "key": "mike-edwards",
+    "name": "Mike Edwards",
+    "role": "Co-owner / Business Operations & Marketing",
+    "education": "",
+    "bio": "Mike is the co-owner of Breakthroughs of North Florida, overseeing all business operations and marketing. Alongside his wife, Marty Edwards, he helped establish the practice to combine educational and mental health support for families.\n\nMike and Marty returned from ten years of service as missionaries in Honduras, Central America, to launch the business. In the early stages of Breakthroughs, Mike worked in the HVAC industry to support the business financially while helping behind the scenes late into the night. In 2019, he officially joined the Breakthroughs team full-time to direct business operations, infrastructure, and strategic marketing.",
+    "image": "images/mike.jpg",
+    "category": "counseling"
   }
 ]
