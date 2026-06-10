@@ -108,7 +108,8 @@ FOOTER_HTML = """
             <li><a href="index.html">Home</a></li>
             <li><a href="programs.html">Our Programs</a></li>
             <li><a href="team.html">Meet the Team</a></li>
-            <li><a href="rates-insurance.html">Rates &amp; Scholarships</a></li>
+            <li><a href="rates-insurance.html">Scholarships &amp; Insurance</a></li>
+            <li><a href="contact.html#portals">Client Portals</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -1040,25 +1041,11 @@ def update_index_links():
         )
     
     # Footer links
-    content = content.replace(
-        '<li><a href="#services">Our Services</a></li>',
-        '<li><a href="programs.html">Our Programs</a></li>'
-    )
-    content = content.replace(
-        '<li><a href="#portals">Client Portals</a></li>',
-        '<li><a href="contact.html">Client Portals</a></li>'
-    )
-    content = content.replace(
-        '<li><a href="#badges">Scholarships &amp; Insurance</a></li>',
-        '<li><a href="rates-insurance.html">Scholarships &amp; Insurance</a></li>'
-    )
-    content = content.replace(
-        '<li><a href="#about">About &amp; Team</a></li>',
-        '<li><a href="team.html">Meet the Team</a></li>'
-    )
-    content = content.replace(
-        '<li><a href="#contact">Contact &amp; Intake</a></li>',
-        '<li><a href="contact.html">Contact Us</a></li>'
+    content = re.sub(
+        r'<h5>Quick Links</h5>\s*<ul>.*?</ul>',
+        '<h5>Quick Links</h5>\n          <ul>\n            <li><a href="index.html">Home</a></li>\n            <li><a href="programs.html">Our Programs</a></li>\n            <li><a href="team.html">Meet the Team</a></li>\n            <li><a href="rates-insurance.html">Scholarships &amp; Insurance</a></li>\n            <li><a href="contact.html#portals">Client Portals</a></li>\n            <li><a href="contact.html">Contact Us</a></li>\n          </ul>',
+        content,
+        flags=re.DOTALL
     )
     
     # CTA button hrefs

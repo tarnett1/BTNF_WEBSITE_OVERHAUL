@@ -1252,8 +1252,8 @@ a:hover {
   }
 }
 
-/* Large Devices (Desktops, 960px and up) */
-@media (min-width: 960px) {
+/* Large Devices (Desktops, 992px and up) */
+@media (min-width: 992px) {
   .main-nav {
     display: block;
   }
@@ -1261,6 +1261,21 @@ a:hover {
   .header-cta {
     display: block;
   }
+}
+
+/* Medium-Large Devices (Laptops, between 992px and 1200px) to prevent nav link overflow/disappearing */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .nav-list {
+    gap: var(--space-sm) !important; /* Reduce menu gap from 1.5rem to 1rem */
+  }
+  .nav-link {
+    font-size: 0.825rem !important; /* Reduce font size slightly from 14px to 13px */
+  }
+  .header-cta .btn {
+    padding: 0.6rem 1.25rem !important; /* Make CTA button slightly more compact */
+    font-size: 0.825rem !important;
+  }
+}
   
   .about-container {
     grid-template-columns: 1.2fr 0.8fr;
