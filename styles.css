@@ -1255,3 +1255,61 @@ a:hover {
     align-items: center;
   }
 }
+
+/* Sticky Note callout style */
+.sticky-note {
+  position: relative;
+  background: #fef8d3; /* Pale post-it yellow */
+  color: #333333;
+  padding: 1.25rem;
+  border-radius: 4px;
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid #f9d854; /* Post-it accent color */
+}
+
+/* Let's give them a slight organic rotation */
+.card-counseling-portal .sticky-note {
+  transform: rotate(-1deg);
+}
+
+.card-academic-portal .sticky-note {
+  transform: rotate(0.8deg);
+}
+
+.sticky-note:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 4px 12px 18px rgba(0, 0, 0, 0.12);
+}
+
+.sticky-note h5 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #554400; /* Dark warm brown/gold */
+}
+
+.sticky-note p {
+  font-size: 0.85rem !important;
+  line-height: 1.45 !important;
+  color: #4a4a4a !important;
+  margin: 0 !important;
+}
+
+/* Semi-transparent tape at the top */
+.sticky-note-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-left: 1px dashed rgba(0, 0, 0, 0.1);
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
