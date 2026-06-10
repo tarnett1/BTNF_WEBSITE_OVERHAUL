@@ -2,7 +2,12 @@
 
 # Ensure we're in the repository directory
 cd "$(dirname "$0")"
-
+python3 scratch/build_pages.py
+python3 scratch/validate.py
+if [ $? -ne 0 ]; then
+  echo "❌ HTML validation failed! Aborting deploy."
+  exit 1
+fi
 
 # Check if there are any changes
 if [ -z "$(git status --porcelain)" ]; then

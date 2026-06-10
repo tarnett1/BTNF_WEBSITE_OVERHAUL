@@ -206,16 +206,18 @@ HEAD_TEMPL = """<!DOCTYPE html>
       text-align: center;
     }}
     .subpage-hero h1 {{
+      color: var(--color-text-light);
       font-size: 3rem;
       margin-bottom: 1rem;
       font-weight: 800;
       letter-spacing: -0.025em;
     }}
     .subpage-hero p {{
+      color: var(--color-text-light-sub);
       font-size: 1.25rem;
       max-width: 800px;
       margin: 0 auto;
-      opacity: 0.9;
+      opacity: 0.95;
     }}
     
     /* Team Filtering styles */
