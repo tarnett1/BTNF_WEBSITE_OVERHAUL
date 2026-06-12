@@ -1371,7 +1371,10 @@ def update_index_links():
     content = content.replace('href="#contact" class="btn btn-secondary btn-block"', 'href="contact.html" class="btn btn-secondary btn-block"')
     
     # Replace global footer and scripts with FOOTER_HTML
-    footer_idx = content.find("<!-- Global Footer -->")
+    # Look for the charm bar first to avoid duplicate blocks when script is run multiple times
+    footer_idx = content.find("<!-- Floating Socials Charm Bar -->")
+    if footer_idx == -1:
+        footer_idx = content.find("<!-- Global Footer -->")
     if footer_idx != -1:
         content = content[:footer_idx] + FOOTER_HTML + "\n</body>\n</html>"
 
