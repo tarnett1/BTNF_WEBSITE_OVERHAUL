@@ -634,22 +634,16 @@
       const badges = document.querySelectorAll('.office-status-badge');
       if (badges.length === 0) return;
 
-      const now = new Date();
-      // Format current time into America/New_York (Florida) time zones
-      const options = { timeZone: 'America/New_York', hour: 'numeric', minute: 'numeric', weekday: 'short', hour12: false };
       try {
-        const formatter = new Intl.DateTimeFormat('en-US', options);
-        const parts = formatter.formatToParts(now);
+        // Get date string in America/New_York (Florida) timezone
+        const nyTimeStr = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+        const nyDate = new Date(nyTimeStr);
         
-        let hour = 0, minute = 0, weekday = '';
-        for (const part of parts) {
-          if (part.type === 'hour') hour = parseInt(part.value, 10);
-          if (part.type === 'minute') minute = parseInt(part.value, 10);
-          if (part.type === 'weekday') weekday = part.value;
-        }
+        const day = nyDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        const hour = nyDate.getHours(); // 0 to 23
 
-        const isWeekend = weekday === 'Sat' || weekday === 'Sun';
-        const isOpen = !isWeekend && (hour >= 8 && hour < 18); // 8:00 AM - 6:00 PM
+        const isWeekend = (day === 0 || day === 6);
+        const isOpen = !isWeekend && (hour >= 8 && hour < 18); // 8 AM to 6 PM
 
         badges.forEach(badge => {
           if (isOpen) {
@@ -661,7 +655,23 @@
           }
         });
       } catch (e) {
-        console.error("Error formatting office hours status:", e);
+        console.error("Error checking office status:", e);
+        // Fallback: Check local browser time as a backup if timezone config fails
+        const now = new Date();
+        const day = now.getDay();
+        const hour = now.getHours();
+        const isWeekend = (day === 0 || day === 6);
+        const isOpen = !isWeekend && (hour >= 8 && hour < 18);
+
+        badges.forEach(badge => {
+          if (isOpen) {
+            badge.innerHTML = '<span class="status-dot open"></span> Open Now (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge open';
+          } else {
+            badge.innerHTML = '<span class="status-dot closed"></span> Closed (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge closed';
+          }
+        });
       }
     }
 
