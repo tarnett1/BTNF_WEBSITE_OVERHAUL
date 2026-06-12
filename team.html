@@ -321,10 +321,12 @@
           This interactive prototype demonstrates recommended enhancements to modernize your website's architecture, user experience, and accessibility. Note that this is a <strong>preliminary concept skeleton</strong> designed to showcase layout and feature possibilities before final content integration.
         </p>
         <ul class="widget-highlights" style="margin: 10px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Modern Multi-Page Setup:</strong> Recommending a structured 5-page layout (Home, Programs, Team, Rates, Contact) to make extensive clinical and educational copy easy to digest and navigate.</li>
-          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Inclusive Design &amp; Accessibility:</strong> Tailored with dyslexia-friendly high-contrast color tones, readable typography, and structured landmark navigation for readers with learning differences.</li>
-          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Streamlined Portals:</strong> Integrating active intake forms (Google Forms) and client portal (TherapyPortal) directly into the navigation header.</li>
-          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Dynamic Anti-Scroll UX:</strong> Compact staff cards with collapsible bio toggles to prevent infinite page scroll, allowing visitors to expand details only when interested.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Modern Multi-Page Layout:</strong> A structured 5-page setup (Home, Programs, Team, Rates, Contact) to make extensive services easy to digest and navigate.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Inclusive Design &amp; Accessibility:</strong> Tailored high-contrast, dyslexia-friendly colors, custom scrollbars, and clear landmark structures for cognitive ease.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Dynamic Anti-Scroll UX:</strong> Collapsible team bios (natural sentence previews with "Read More" expanders) that prevent infinite scrolling.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Interactive Premium Features:</strong> Auto-rotating testimonials slider, filterable program category tabs, and smooth animated FAQ accordions.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Live Utility Badges:</strong> Pulsating real-time "Office Hours" status indicator and persistent, direct client portal navigation links.</li>
+          <li style="position: relative; padding-left: 18px; font-size: 0.775rem; line-height: 1.4; color: var(--color-text-main);"><strong style="color: var(--color-primary-navy);">Floating Socials &amp; Navigation:</strong> Glassmorphic right-hand charms bar and scroll-to-top button with smart responsive auto-hide queries.</li>
         </ul>
         <p class="widget-note" style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic; border-top: 1px solid var(--color-border-subtle); padding-top: 6px; margin-top: 6px; margin-bottom: 0;">Click this header to collapse/expand this guide and view the layout uninterrupted.</p>
       </div>
@@ -522,6 +524,93 @@ SYMBIS Facilitator</p>
           <h2 class="section-title counseling-title">Clinical Counseling &amp; Therapy</h2>
           <div class="team-grid-extended">
     
+          <!-- Staff Card: Marty Edwards -->
+          <div class="team-card " data-category="counseling">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/marty.jpg" alt="Marty Edwards">
+              <div class="team-meta">
+                <h4>Marty Edwards</h4>
+                <span class="team-role">Licensed Marriage & Family Therapist</span>
+                
+                <div class="team-badge-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;"><span class="team-badge badge-leadership" >Clinical Leadership</span><span class="team-badge badge-counseling" >Counseling Team</span></div>
+              </div>
+            </div>
+            <p class="education-text">Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.</p>
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida.</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.
+
+Marty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well. She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples. She is excited to call Nassau County home, where she will continue to serve for many years to come.
+
+Specialties:
+- Anxiety
+- Depression
+- Grief & Trauma
+- Weight Loss
+- Mood Disorders
+- Post Traumatic Stress Disorder (PTSD)
+
+Additional Training in:
+- DBT (Dialectical Behavior Therapy)
+- CBT (Cognitive Behavior Therapy)
+- Hypno-Counting
+- Enneagram
+- Love & Logic</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
+          </div>
+        
+          <!-- Staff Card: Devin McClure -->
+          <div class="team-card " data-category="counseling">
+            <div class="team-card-header">
+              <img class="team-avatar" src="images/devin_mcclure.jpg" alt="Devin McClure">
+              <div class="team-meta">
+                <h4>Devin McClure</h4>
+                <span class="team-role">Registered Mental Health Counseling Intern</span>
+                
+                <div class="team-badge-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;"><span class="team-badge badge-leadership" >Leadership</span><span class="team-badge badge-operations" >Operations</span><span class="team-badge badge-counseling" >Counseling Team</span></div>
+              </div>
+            </div>
+            
+            
+            <div class="team-bio-container">
+              <p class="team-bio bio-preview-text">Director of Operations
+
+Devin was born and raised in Southern California before relocating to Florida with his wife and two children.</p>
+              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Director of Operations
+
+Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master’s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.
+
+Devin earned his bachelor’s degree in psychology and is credentialed as a teacher in the state of Florida in the areas of secondary Social Sciences and English. Since moving to Florida, he has worked within the Nassau County school system as both a teacher and athletics coach, providing him with meaningful experience supporting children, adolescents, and families within school and community settings.
+
+Prior to his career in counseling and education, Devin served in law enforcement in multiple roles, including patrol officer, detective, S.W.A.T. operator, and District Attorney investigator. Through this work, he developed a strong understanding of the cumulative stress, trauma exposure, and relational strain often experienced by first responders and public safety professionals. As a result, he is particularly passionate about supporting first responders, veterans, and their families, as well as individuals navigating high-stress occupations.
+
+In his clinical work, Devin provides counseling services to adolescents, adults, couples, and families. He has experience and special interest in working with clients presenting with trauma and stress-related concerns, anxiety, depression, grief and loss, relationship challenges, occupational stress, and life transitions. When working with couples, Devin integrates Gottman Method–informed interventions to support healthy communication, conflict management, and relationship strengthening. His EMDR-informed approach supports clients processing distressing experiences in a structured, evidence-based manner.
+
+While serving as a police officer, Devin was assigned to a joint task force composed of officers from multiple agencies and clinicians from the Los Angeles County Department of Mental Health. These co-response teams functioned as mobile psychiatric and psychological crisis intervention units, providing on-scene mental health evaluations, crisis intervention, and coordination of wraparound services for individuals experiencing acute mental health needs in the community.
+
+Outside of his professional work, Devin is an enthusiastic public speaker, educator, and small-group facilitator within his local church and community. He enjoys staying active and spending time with his family, including camping, beachcombing, traveling, and attending his daughter’s dance and cheer recitals.
+
+Specialties
+
+EMDR Trained
+
+Certified in crisis intervention tactics
+
+Law Enforcement Trauma Response Team Member
+
+Trained in Peer Counseling
+
+Association of Threat Assessment Professionals, Certified Threat Manager (CTM)
+
+SYMBIS Facilitator</p>
+              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
+            </div>
+            
+          </div>
+        
           <!-- Staff Card: Amanda King -->
           <div class="team-card " data-category="counseling">
             <div class="team-card-header">
@@ -690,55 +779,6 @@ Adults
 Couples
 
 Caitlin began her career providing at-home counseling services to seniors. Following this, she worked in a nursing home, where she focused on the assessment and discharge planning for residents. After dedicating time to raising her young children, Caitlin is now returning to her passion for assisting others through social work and counseling. She is eager to serve our community.</p>
-              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
-            </div>
-            
-          </div>
-        
-          <!-- Staff Card: Devin McClure -->
-          <div class="team-card " data-category="counseling">
-            <div class="team-card-header">
-              <img class="team-avatar" src="images/devin_mcclure.jpg" alt="Devin McClure">
-              <div class="team-meta">
-                <h4>Devin McClure</h4>
-                <span class="team-role">Registered Mental Health Counseling Intern</span>
-                
-                <div class="team-badge-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;"><span class="team-badge badge-leadership" >Leadership</span><span class="team-badge badge-operations" >Operations</span><span class="team-badge badge-counseling" >Counseling Team</span></div>
-              </div>
-            </div>
-            
-            
-            <div class="team-bio-container">
-              <p class="team-bio bio-preview-text">Director of Operations
-
-Devin was born and raised in Southern California before relocating to Florida with his wife and two children.</p>
-              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Director of Operations
-
-Devin was born and raised in Southern California before relocating to Florida with his wife and two children. He has lived in Fernandina Beach since 2021. Devin is a Registered Mental Health Counseling Intern in the state of Florida, practicing under the supervision of a qualified licensed mental health professional, and holds a Master’s degree in Clinical Mental Health Counseling from Liberty University. He is trained in Eye Movement Desensitization and Reprocessing (EMDR) therapy and trained in the Gottman Method for Couples Therapy.
-
-Devin earned his bachelor’s degree in psychology and is credentialed as a teacher in the state of Florida in the areas of secondary Social Sciences and English. Since moving to Florida, he has worked within the Nassau County school system as both a teacher and athletics coach, providing him with meaningful experience supporting children, adolescents, and families within school and community settings.
-
-Prior to his career in counseling and education, Devin served in law enforcement in multiple roles, including patrol officer, detective, S.W.A.T. operator, and District Attorney investigator. Through this work, he developed a strong understanding of the cumulative stress, trauma exposure, and relational strain often experienced by first responders and public safety professionals. As a result, he is particularly passionate about supporting first responders, veterans, and their families, as well as individuals navigating high-stress occupations.
-
-In his clinical work, Devin provides counseling services to adolescents, adults, couples, and families. He has experience and special interest in working with clients presenting with trauma and stress-related concerns, anxiety, depression, grief and loss, relationship challenges, occupational stress, and life transitions. When working with couples, Devin integrates Gottman Method–informed interventions to support healthy communication, conflict management, and relationship strengthening. His EMDR-informed approach supports clients processing distressing experiences in a structured, evidence-based manner.
-
-While serving as a police officer, Devin was assigned to a joint task force composed of officers from multiple agencies and clinicians from the Los Angeles County Department of Mental Health. These co-response teams functioned as mobile psychiatric and psychological crisis intervention units, providing on-scene mental health evaluations, crisis intervention, and coordination of wraparound services for individuals experiencing acute mental health needs in the community.
-
-Outside of his professional work, Devin is an enthusiastic public speaker, educator, and small-group facilitator within his local church and community. He enjoys staying active and spending time with his family, including camping, beachcombing, traveling, and attending his daughter’s dance and cheer recitals.
-
-Specialties
-
-EMDR Trained
-
-Certified in crisis intervention tactics
-
-Law Enforcement Trauma Response Team Member
-
-Trained in Peer Counseling
-
-Association of Threat Assessment Professionals, Certified Threat Manager (CTM)
-
-SYMBIS Facilitator</p>
               <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
             </div>
             
@@ -952,44 +992,6 @@ Kelly has experience working with children, teens, adults, and seniors. She util
 Known for her gentle and warm demeanor, Kelly creates a safe and supportive environment where clients feel heard and understood. At the same time, she thoughtfully challenges her clients to step outside of their comfort zones and collaboratively engage in their therapeutic process and healing.
 
 Outside of the counseling office, Kelly enjoys spending time at the beach with her husband and children embracing the coastal lifestyle that Nassau county has to offer.</p>
-              <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
-            </div>
-            
-          </div>
-        
-          <!-- Staff Card: Marty Edwards -->
-          <div class="team-card " data-category="counseling">
-            <div class="team-card-header">
-              <img class="team-avatar" src="images/marty.jpg" alt="Marty Edwards">
-              <div class="team-meta">
-                <h4>Marty Edwards</h4>
-                <span class="team-role">Licensed Marriage & Family Therapist</span>
-                
-                <div class="team-badge-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;"><span class="team-badge badge-leadership" >Clinical Leadership</span><span class="team-badge badge-counseling" >Counseling Team</span></div>
-              </div>
-            </div>
-            <p class="education-text">Her educational experiences include a Masters Degree from Liberty University in Clinical Counseling with a specialty in Marriage & Family, and a Bachelors Degree in Education from Georgia Southern University.</p>
-            
-            <div class="team-bio-container">
-              <p class="team-bio bio-preview-text">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida.</p>
-              <p class="team-bio bio-full-text" style="display: none; white-space: pre-wrap;">Marty is a Licensed Marriage & Family Therapist (LMFT) and a Qualified Supervisor for the State of Florida. She provides professional counseling services to marriages, couples, families, children, and adolescents.
-
-Marty taught in both the public and private school systems for ten years in Statesboro, Georgia, and previously founded, owned/operated a learning center there as well. She lived ten years in Honduras, Central America, providing counseling to orphans, families and couples. She is excited to call Nassau County home, where she will continue to serve for many years to come.
-
-Specialties:
-- Anxiety
-- Depression
-- Grief & Trauma
-- Weight Loss
-- Mood Disorders
-- Post Traumatic Stress Disorder (PTSD)
-
-Additional Training in:
-- DBT (Dialectical Behavior Therapy)
-- CBT (Cognitive Behavior Therapy)
-- Hypno-Counting
-- Enneagram
-- Love & Logic</p>
               <button class="bio-toggle-btn" aria-expanded="false" onclick="toggleBioCard(this)">Read More</button>
             </div>
             
