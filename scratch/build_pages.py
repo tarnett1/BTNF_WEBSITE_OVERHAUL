@@ -724,7 +724,7 @@ def build_team():
     team_html += NAV_HTML
     
     # Separate lists
-    leadership_keys = ["devin-mcclure", "marty-edwards", "mike-edwards"]
+    leadership_keys = ["mike-edwards", "marty-edwards", "devin-mcclure"]
     # Preserve exact order of leadership_keys
     leadership_team = []
     for k in leadership_keys:
