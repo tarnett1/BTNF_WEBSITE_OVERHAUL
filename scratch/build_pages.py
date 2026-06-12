@@ -120,7 +120,7 @@ FOOTER_HTML = """
       </svg>
       <span class="charm-tooltip">LinkedIn</span>
     </a>
-    <a href="tel:904-261-2600" class="charm-link" aria-label="Call Us">
+    <a href="tel:904-849-1190" class="charm-link" aria-label="Call Us">
       <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
       </svg>
@@ -240,6 +240,12 @@ FOOTER_HTML = """
       if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
       }
+
+      // Initialize live office hours badge
+      updateOfficeStatus();
+
+      // Initialize testimonials quotes slider if it exists
+      initTestimonialsSlider();
     });
 
     // Toggle floating proposal widget
@@ -275,6 +281,120 @@ FOOTER_HTML = """
         }
       }
     });
+
+    // Live office hours checker function
+    function updateOfficeStatus() {
+      const badges = document.querySelectorAll('.office-status-badge');
+      if (badges.length === 0) return;
+
+      const now = new Date();
+      // Format current time into America/New_York (Florida) time zones
+      const options = { timeZone: 'America/New_York', hour: 'numeric', minute: 'numeric', weekday: 'short', hour12: false };
+      try {
+        const formatter = new Intl.DateTimeFormat('en-US', options);
+        const parts = formatter.formatToParts(now);
+        
+        let hour = 0, minute = 0, weekday = '';
+        for (const part of parts) {
+          if (part.type === 'hour') hour = parseInt(part.value, 10);
+          if (part.type === 'minute') minute = parseInt(part.value, 10);
+          if (part.type === 'weekday') weekday = part.value;
+        }
+
+        const isWeekend = weekday === 'Sat' || weekday === 'Sun';
+        const isOpen = !isWeekend && (hour >= 8 && hour < 18); // 8:00 AM - 6:00 PM
+
+        badges.forEach(badge => {
+          if (isOpen) {
+            badge.innerHTML = '<span class="status-dot open"></span> Open Now (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge open';
+          } else {
+            badge.innerHTML = '<span class="status-dot closed"></span> Closed (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge closed';
+          }
+        });
+      } catch (e) {
+        console.error("Error formatting office hours status:", e);
+      }
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFAQ(button) {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+      const isActive = item.classList.contains('active');
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const qBtn = i.querySelector('.faq-question');
+        if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Horizontal Program Tab Switcher
+    function switchProgramTab(btn, category) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.program-card-detail');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Testimonials slider carousel logic
+    let slideIdx = 0;
+    let testimonialTimer;
+
+    function initTestimonialsSlider() {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      if (slides.length === 0) return;
+      
+      // Show first slide
+      slides[0].classList.add('active');
+      testimonialTimer = setInterval(rotateSlides, 6000);
+    }
+
+    function rotateSlides() {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      if (slides.length === 0) return;
+
+      slides[slideIdx].classList.remove('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.remove('active');
+
+      slideIdx = (slideIdx + 1) % slides.length;
+
+      slides[slideIdx].classList.add('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.add('active');
+    }
+
+    function currentSlide(n) {
+      clearInterval(testimonialTimer);
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      if (slides.length === 0) return;
+
+      slides[slideIdx].classList.remove('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.remove('active');
+
+      slideIdx = n;
+
+      slides[slideIdx].classList.add('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.add('active');
+
+      testimonialTimer = setInterval(rotateSlides, 6000);
+    }
   </script>
 """
 
@@ -880,6 +1000,17 @@ def build_team():
         f.write(team_html)
     print("Generated team.html")
 
+def get_program_category(key):
+    if key == "barton":
+        return "dyslexia"
+    elif key in ["lindamood-bell", "lips", "on-cloud-9", "seeing-stars", "talkies", "visualizing-verbalizing"]:
+        return "sensory-cognitive"
+    elif key in ["satact-test-prep", "tutoring"]:
+        return "support"
+    elif key == "love-and-logic":
+        return "parenting"
+    return "all"
+
 # Build programs.html
 def build_programs():
     prog_html = HEAD_TEMPL.format(
@@ -899,15 +1030,25 @@ def build_programs():
 
     <section class="subpage-content">
       <div class="container">
+        <!-- Interactive Horizontal Tabs Switcher -->
+        <div class="programs-tabs-nav" role="tablist" aria-label="Program Categories">
+          <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchProgramTab(this, 'all')">Show All</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="switchProgramTab(this, 'dyslexia')">Barton Spelling (Dyslexia)</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="switchProgramTab(this, 'sensory-cognitive')">Lindamood-Bell® Instruction</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="switchProgramTab(this, 'support')">Academic Tutoring &amp; Prep</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="switchProgramTab(this, 'parenting')">Parent Training</button>
+        </div>
+
         <div class="programs-detailed">
     """
     
     for prog in programs_list:
         title = prog["title"]
         text = prog["text"]
+        cat = get_program_category(prog["key"])
         
         prog_html += f"""
-          <article class="program-card-detail" id="{prog["key"]}">
+          <article class="program-card-detail" id="{prog["key"]}" data-category="{cat}">
             <h3>{title}</h3>
             <div class="program-body-text">{text}</div>
           </article>
@@ -1020,6 +1161,55 @@ def build_rates_insurance():
 
         <hr style="margin: 4rem 0; border: 0; border-top: 1px solid var(--color-border-subtle);">
 
+        <div id="faq">
+          <h3 class="text-center">Frequently Asked Questions</h3>
+          <p class="text-center" style="color: var(--color-text-muted); margin-bottom: 2rem;">Common questions about billing, health insurance coverage, and Florida scholarship programs.</p>
+          
+          <div class="faq-container">
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+                Does health insurance cover educational tutoring or Barton/Lindamood-Bell programs?
+                <span class="faq-chevron" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>No. Health insurance carriers strictly cover clinical mental health therapy and psychiatric services when billed by a licensed clinical provider. Educational tutoring and sensory-cognitive programs represent academic interventions and cannot be billed as medical treatments.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+                Can I use Florida Step Up for Students / FES-UA scholarships to cover tutoring?
+                <span class="faq-chevron" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes! Breakthroughs of North Florida is an approved provider for the Step Up for Students scholarship network. Families can utilize Family Empowerment Scholarship - Unique Abilities (FES-UA) and Personalized Education Program (PEP) awards to cover the cost of Barton, Lindamood-Bell® methods, and curriculum tutoring.</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+                What is the difference between specialized programs and traditional tutoring?
+                <span class="faq-chevron" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Traditional tutoring helps a student keep up or catch up on specific classroom subjects (like math or science). Specialized programs (like Barton Reading & Spelling and Lindamood-Bell® instruction) develop the underlying sensory-cognitive processing skills required to read, spell, and comprehend, addressing root processing differences rather than temporary homework struggles.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false" onclick="toggleFAQ(this)">
+                How do I get started with clinical counseling or tutoring services?
+                <span class="faq-chevron" aria-hidden="true">▼</span>
+              </button>
+              <div class="faq-answer">
+                <p>Simply navigate to our secure client portals to complete our online academic intake or TherapyNotes documentation, or fill out the inquiry form on our homepage. Our office coordinator will contact you to match you with a therapist or educational specialist suited to your needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin: 4rem 0; border: 0; border-top: 1px solid var(--color-border-subtle);">
+
         <div id="privacy">
           <h3>Privacy Policy &amp; Disclosures</h3>
           <div style="font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted); white-space: pre-wrap;">{privacy_copy}</div>
@@ -1065,6 +1255,7 @@ def build_contact():
               <h4 style="margin-bottom: 0.5rem; color: var(--color-primary-navy);">Call Our Office</h4>
               <p style="font-size: 1.25rem; font-weight: 700; color: var(--color-text-main);"><a href="tel:9048491190" style="color: inherit; text-decoration: none;">904-849-1190</a></p>
               <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Monday - Friday: 8:00 AM - 6:00 PM</p>
+              <div class="office-status-badge">Checking office status...</div>
             </div>
 
             <div class="card-portal-box" style="margin-bottom: 2rem;">

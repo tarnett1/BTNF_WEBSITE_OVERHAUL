@@ -511,6 +511,42 @@
       </div>
     </section>
 
+    <!-- Testimonials Slider Section -->
+    <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading" class="section-title text-center">What Our Families Say</h2>
+        <p class="section-subtitle text-center" style="max-width: 600px; margin: 0 auto; color: var(--color-text-muted);">Real stories of growth, confidence, and breakthrough achievements from local parents and clients.</p>
+        
+        <div class="testimonials-slider-container">
+          <div class="testimonial-slide active" id="slide-0">
+            <blockquote class="testimonial-quote">
+              "The coordination between tutoring and therapy was a game changer for our son. He went from crying over spelling homework to reading above grade level, and his confidence has soared. The staff here genuinely care."
+            </blockquote>
+            <cite class="testimonial-author">— Parent of 4th Grade Student (Yulee, FL)</cite>
+          </div>
+          <div class="testimonial-slide" id="slide-1" style="display: none;">
+            <blockquote class="testimonial-quote">
+              "After trying multiple traditional tutors with no success, the Lindamood-Bell programs here completely unlocked reading for our daughter. We are so grateful for the patience and expertise of the educators."
+            </blockquote>
+            <cite class="testimonial-author">— Homeschool Mother (Fernandina Beach, FL)</cite>
+          </div>
+          <div class="testimonial-slide" id="slide-2" style="display: none;">
+            <blockquote class="testimonial-quote">
+              "As an adult dealing with life transitions and anxiety, I found the counseling services here to be compassionate, practical, and incredibly supportive. Highly recommend this practice."
+            </blockquote>
+            <cite class="testimonial-author">— Counseling Client (Amelia Island, FL)</cite>
+          </div>
+          
+          <!-- Slider Navigation Dots -->
+          <div class="slider-dots">
+            <button class="slider-dot active" onclick="currentSlide(0)" aria-label="Go to testimonial slide 1"></button>
+            <button class="slider-dot" onclick="currentSlide(1)" aria-label="Go to testimonial slide 2"></button>
+            <button class="slider-dot" onclick="currentSlide(2)" aria-label="Go to testimonial slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact & Intake Section -->
     <section id="contact" class="contact-section" aria-labelledby="contact-heading">
       <div class="container contact-container">
@@ -532,6 +568,7 @@
               <div>
                 <span class="info-title text-light">Call Office</span>
                 <a href="tel:9048491190" class="info-value text-light">(904) 849-1190</a>
+                <div class="office-status-badge">Checking office status...</div>
               </div>
             </div>
 
@@ -711,6 +748,54 @@
     </svg>
   </button>
 
+  
+  <!-- Floating Socials Charm Bar -->
+  <div class="socials-charm" aria-label="Social Media Links">
+    <a href="https://www.facebook.com/BreakthroughsofNorthFlorida" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="Facebook">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0 -5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+      <span class="charm-tooltip">Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/breakthroughsofjacksonville/" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="Instagram">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      <span class="charm-tooltip">Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/company/breakthroughs-of-north-florida/" target="_blank" rel="noopener noreferrer" class="charm-link" aria-label="LinkedIn">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+      <span class="charm-tooltip">LinkedIn</span>
+    </a>
+    <a href="tel:904-849-1190" class="charm-link" aria-label="Call Us">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span class="charm-tooltip">Call Us</span>
+    </a>
+    <a href="contact.html" class="charm-link" aria-label="Contact Us">
+      <svg class="charm-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <span class="charm-tooltip">Email Us</span>
+    </a>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Scroll to top of page">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
   <!-- Global Footer -->
   <footer class="main-footer">
     <div class="container footer-container">
@@ -808,6 +893,12 @@
       if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
       }
+
+      // Initialize live office hours badge
+      updateOfficeStatus();
+
+      // Initialize testimonials quotes slider if it exists
+      initTestimonialsSlider();
     });
 
     // Toggle floating proposal widget
@@ -843,6 +934,120 @@
         }
       }
     });
+
+    // Live office hours checker function
+    function updateOfficeStatus() {
+      const badges = document.querySelectorAll('.office-status-badge');
+      if (badges.length === 0) return;
+
+      const now = new Date();
+      // Format current time into America/New_York (Florida) time zones
+      const options = { timeZone: 'America/New_York', hour: 'numeric', minute: 'numeric', weekday: 'short', hour12: false };
+      try {
+        const formatter = new Intl.DateTimeFormat('en-US', options);
+        const parts = formatter.formatToParts(now);
+        
+        let hour = 0, minute = 0, weekday = '';
+        for (const part of parts) {
+          if (part.type === 'hour') hour = parseInt(part.value, 10);
+          if (part.type === 'minute') minute = parseInt(part.value, 10);
+          if (part.type === 'weekday') weekday = part.value;
+        }
+
+        const isWeekend = weekday === 'Sat' || weekday === 'Sun';
+        const isOpen = !isWeekend && (hour >= 8 && hour < 18); // 8:00 AM - 6:00 PM
+
+        badges.forEach(badge => {
+          if (isOpen) {
+            badge.innerHTML = '<span class="status-dot open"></span> Open Now (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge open';
+          } else {
+            badge.innerHTML = '<span class="status-dot closed"></span> Closed (Mon-Fri 8am-6pm)';
+            badge.className = 'office-status-badge closed';
+          }
+        });
+      } catch (e) {
+        console.error("Error formatting office hours status:", e);
+      }
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFAQ(button) {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+      const isActive = item.classList.contains('active');
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const qBtn = i.querySelector('.faq-question');
+        if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Horizontal Program Tab Switcher
+    function switchProgramTab(btn, category) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.program-card-detail');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Testimonials slider carousel logic
+    let slideIdx = 0;
+    let testimonialTimer;
+
+    function initTestimonialsSlider() {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      if (slides.length === 0) return;
+      
+      // Show first slide
+      slides[0].classList.add('active');
+      testimonialTimer = setInterval(rotateSlides, 6000);
+    }
+
+    function rotateSlides() {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      if (slides.length === 0) return;
+
+      slides[slideIdx].classList.remove('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.remove('active');
+
+      slideIdx = (slideIdx + 1) % slides.length;
+
+      slides[slideIdx].classList.add('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.add('active');
+    }
+
+    function currentSlide(n) {
+      clearInterval(testimonialTimer);
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.slider-dot');
+      if (slides.length === 0) return;
+
+      slides[slideIdx].classList.remove('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.remove('active');
+
+      slideIdx = n;
+
+      slides[slideIdx].classList.add('active');
+      if (dots[slideIdx]) dots[slideIdx].classList.add('active');
+
+      testimonialTimer = setInterval(rotateSlides, 6000);
+    }
   </script>
 
 </body>
